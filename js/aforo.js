@@ -15,7 +15,9 @@ var config = {
 
 
       if(!firebase.apps.length){
-        firebase.initializeApp(config);
+		firebase.initializeApp(config);
+		
+		autenticar();
 	      }
 
 var provider="";
@@ -33,6 +35,7 @@ var offsetRef = firebase.database().ref(".info/serverTimeOffset");
 offsetRef.on("value", damefechayhora, errorfecha);
 
 function damefechayhora(snap) {
+	
 	offset = snap.val();
 	timestamp = new Date().getTime() + offset;
 	//	timestamp=db.Timestamp;
@@ -57,7 +60,8 @@ function damefechayhora(snap) {
 	}
 
 	fechayhora = day + "/" + month + "/" + year + " " + curr_hour + ":" + curr_min + ":" + curr_sec;
-
+	alert("paso"+fechayhora);
+	crear_test();
 }
 
 
@@ -114,7 +118,22 @@ var emailadministrador = "c_navarro_martinez@hotmail.com"
 var valorpremio = "";
 var textoPremio=""
 
+function autenticar(){
+email = "aforo@prueba.com";
+var autor = firebase.auth();
+var password = "aforo2020";
 
+	firebase.auth().signInWithEmailAndPassword(email, password)
+		.then(function () {
+	
+			alertify.success("autenticada");
+		})
+		.catch(function (error) {
+		
+			alertify.error(errorMessage);
+		});
+
+}
 
 
 
@@ -122,93 +141,16 @@ function crear_test() {
 
 
 
-
-	$('#cabpreguntas').empty();
-	$('#divNivel').empty();
-
-	numpreguntas = 1;
-
-
-	$("#sigpreg").removeClass("ui-disabled");
-	//cargaredades();
-	//cargarcategorias();
-	var nom = $('#nomtest').val();
-
-	numrespaprobar = $('#aciertos').val();
-
-	valorpremio = $('#premio').val();
-
-	var usu = email;
-
-	var textoedad = $("#listaedades option:selected").text();
-	var valoredad = $("#listaedades").val();
-	var textocategoria = $("#listacategorias option:selected").text();
-	var valorcategoria = $("#listacategorias").val();
-
-	if (valoredad == "--") {
-		alertify.error("Ha de seleccionar edad");
-
-	} else {
-		if (valorcategoria == "--") {
-			alertify.error("Ha de seleccionar la categoria");
-		}else{
-
-
-
-				if ((isNaN(numrespaprobar)) || numrespaprobar == "" || numrespaprobar == 0) {
-					alertify.error("Ha de poner un número de respuestas para aprobar");
-
-				} else {
-
-					if (nom != "") {
-
-						db.collection("tests").add({
-							nombre: nom,
-							numrespaprobar: numrespaprobar,
-
-							premio: valorpremio,
-
-							usuario_creador: usu,
-							timestamp: timestamp,
-							id_categoria: valorcategoria,
-							id_edad: valoredad
+						db.collection("aforo").add({
+							nombre:"El Carpio",
+							provincia: "Ávila",
+							municipio: "Cardeñosa"
 
 						})
 							.then(function (docRef) {
 
 
-
-
-								$.mobile.changePage("#preguntas", {
-									transition: "slide",
-									reverse: true
-								});
-								for (var i = 1; i < 5; i++) {
-
-
-									var valboton = "guardar" + i;
-									var valradio = "radio" + i;
-									var valimput = "opcion" + i;
-
-
-									$("#" + valimput).show();
-									$("#" + valboton).removeClass("ui-disabled");
-									$('label[for="' + valradio + '"]').hide();
-									$('label[for="' + valimput + '"]').show();
-
-									document.getElementById(valradio).style.visibility = 'hidden';
-									$("#" + valboton).text("Opción " + i);
-									$("#" + valimput).val("");
-
-								}
-								alertify.success("Test creado");
-								console.log("Teste creado ", docRef.id);
-								id_test = docRef.id;
-								$('#divNivel').empty();
-
-								$('#divNivel').append("PREGUNTA: " + numpreguntas + " ACIERTOS PARA APROBAR: " + numrespaprobar);
-
-								$('#cabpreguntas').append(" PREGUNTAS DEL TEST: " + nom);
+								alertify.success("añadido");
 
 
 							})
@@ -216,14 +158,7 @@ function crear_test() {
 
 								console.error("Error adding document: ", error);
 							});
-					} else {
-						alertify.error("Ha de poner un nombre");
-					}
-					
-				}
-		}
-	}
-	leer_test(email);
+				
 }
 
 
