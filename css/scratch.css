@@ -1,0 +1,67 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.scratchpad{
+
+  width: 450px;
+  height: 445px;
+  border: solid 10px #FFFFFF;
+  margin:0 auto;
+  background:FFFFFF;
+}
+body {
+    background:#FFFFFF;
+}
+.scratch-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width:100%;
+    background:#ffffff;
+}
+  /* Extra Small Devices, Phones */ 
+          @media only screen and (max-width : 480px) {
+            .scratchpad {width:400px;height:396px;}
+            .scratch-container {width:400px !important;}
+          }
+
+          /* Custom, iPhone Retina */ 
+          @media only screen and (max-width : 320px) {
+            .scratchpad {width:290px;height:287px;}
+            .scratch-container {width:290px !important;}
+          }
+.promo-container {
+
+	background:#FFFfff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	width:450px;
+	padding:20px;
+	margin:0 auto;
+	text-align:center;
+	font-family:'Open Sans', Arial,Sans-serif;
+	color:#333;
+	font-size:16px;
+	margin-top:20px;
+	  background:purple;
+}
+.btn {
+  background:#56CFD2;
+  color:#FFF;
+  padding:10px 25px;
+  display:inline-block;
+  margin-top:15px;
+  text-decoration:none;
+  font-weight:600;
+  text-transform:uppercase;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radiuss:3px;
+}

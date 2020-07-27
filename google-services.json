@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "192133283425",
+    "firebase_url": "https://aforo-2bad9.firebaseio.com",
+    "project_id": "aforo-2bad9",
+    "storage_bucket": "aforo-2bad9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192133283425:android:ea28b2484e3fac392a3420",
+        "android_client_info": {
+          "package_name": "com.mobincube.app_1595539261.sc_E3BFTQ"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192133283425-3sjdvh0kc8ft4pg3rrm2d1m0il9m5bd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKgBnv_HtIygPxYmMNLi2xMOBFnkvORnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192133283425-3sjdvh0kc8ft4pg3rrm2d1m0il9m5bd5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
