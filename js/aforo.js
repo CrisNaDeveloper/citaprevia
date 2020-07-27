@@ -1,5 +1,5 @@
 function parametroURL(_par) {
-	alertify.success("_par"+_par);
+
 	var _p = null;
 	if (location.search) location.search.substr(1).split("&").forEach(function(pllv) {
 	  var s = pllv.split("="), //separamos llave/valor
@@ -133,13 +133,10 @@ var password = "aforo2020";
 	firebase.auth().signInWithEmailAndPassword(email, password)
 		.then(function () {
 	
-			alertify.success("autenticada");
-
-
-			var operacion = parametroURL('operacion');
+						var operacion = parametroURL('operacion');
 
 			if(operacion=="alta"){
-				alertify.success("operacion"+operacion);
+				
 				alta();
 			}
 
@@ -165,27 +162,28 @@ var password = "aforo2020";
 
 
 function alta() {
-	alertify.success("alta");
+
 	nombre = parametroURL('nombre');
-	//provincia = parametroURL('nombre');
-	//municipio = parametroURL('nombre');
-	//coordenadas = parametroURL('coordenadas');
+	provincia = parametroURL('provincia');
+	municipio = parametroURL('municipio');
+	coordenadas = parametroURL('coordenadas');
 	ocupacion_actual = parametroURL('ocupacion_actual');
 	plazas = parametroURL('plazas');
-	//fecha = parametroURL('fecha');
+
 
 							db.collection("aforo").add({
 							nombre:nombre,
-							//provincia: provincia,
-							//municipio: municipio,
-							//coordenadas: coordenadas,
+							provincia: provincia,
+							municipio: municipio,
+							coordenadas: coordenadas,
 							ocupacion_actual:ocupacion_actual,
-							plazas:plazas
+							plazas:plazas,
+							fecha:fechayhora
 						})
 							.then(function (docRef) {
 
 
-								alertify.success("añadido");
+								alertify.success("Se ha añadido correctamente");
 
 
 							})
