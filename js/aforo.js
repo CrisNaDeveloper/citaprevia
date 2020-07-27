@@ -114,6 +114,13 @@ function errorfecha(e) {
 
 
 
+
+
+
+
+
+
+
 var email = "";
 
 
@@ -133,6 +140,19 @@ var password = "aforo2020";
 		});
 
 }
+
+
+
+var operacion = parametroURL('operacion');
+if(operacion=="alta"){
+	alta();
+}
+
+
+
+
+
+
 
 function alta() {
 
