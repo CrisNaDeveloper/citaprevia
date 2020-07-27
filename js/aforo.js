@@ -171,7 +171,7 @@ function alta() {
 							coordenadas: coordenadas,
 							ocupacion_actual:ocupacion_actual,
 							plazas:plazas,
-							fecha:fechayhora
+							fecha:""
 
 						})
 							.then(function (docRef) {
