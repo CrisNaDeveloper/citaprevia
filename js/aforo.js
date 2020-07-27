@@ -1,8 +1,21 @@
-$( document ).bind( "mobileinit", function() {
-    // Make your jQuery Mobile framework configuration changes here!
-
-    $.mobile.allowCrossDomainPages = true;
-});
+function parametroURL(_par) {
+	var _p = null;
+	if (location.search) location.search.substr(1).split("&").forEach(function(pllv) {
+	  var s = pllv.split("="), //separamos llave/valor
+		ll = s[0],
+		v = s[1] && decodeURIComponent(s[1]); //valor hacemos encode para prevenir url encode
+	  if (ll == _par) { //solo nos interesa si es el nombre del parametro a buscar
+		if(_p==null){
+		_p=v; //si es nula, quiere decir que no tiene valor, solo textual
+		}else if(Array.isArray(_p)){
+		_p.push(v); //si ya es arreglo, agregamos este valor
+		}else{
+		_p=[_p,v]; //si no es arreglo, lo convertimos y agregamos este valor
+		}
+	  }
+	});
+	return _p;
+  }
 var config = {
 	apiKey: "AIzaSyDKgBnv_HtIygPxYmMNLi2xMOBFnkvORnk",
 	authDomain: "aforo-2bad9.firebaseapp.com",
@@ -102,21 +115,7 @@ function errorfecha(e) {
 
 
 var email = "";
-var id_test = "";
-var nombre = ""
-var preg = "";
-var res = "";
-var numpreguntas = 1;
 
-var numpregcuestion = 1;
-var numpregtotaltest = 0;
-var aciertos = 0;
-var respanterior = "";
-var acertada = 0;
-var numrespaprobar = 0;
-var emailadministrador = "c_navarro_martinez@hotmail.com"
-var valorpremio = "";
-var textoPremio=""
 
 function autenticar(){
 email = "aforo@prueba.com";
@@ -137,14 +136,22 @@ var password = "aforo2020";
 
 function alta() {
 
+	nombre = parametroURL('nombre');
+	provincia = parametroURL('nombre');
+	municipio = parametroURL('nombre');
+	coordenadas = parametroURL('coordenadas');
+	ocupacion_actual = parametroURL('ocupacion_actual');
+	plazas = parametroURL('plazas');
+	fecha = parametroURL('fecha');
+
 							db.collection("aforo").add({
-							nombre:"El Carpio",
-							provincia: "Ávila",
-							municipio: "Cardeñosa",
-							coordenadas: "",
-							ocupacion_actual:"2",
-							plazas:"",
-							fecha:""
+							nombre:nombre,
+							provincia: provincia,
+							municipio: municipio,
+							coordenadas: coordenadas,
+							ocupacion_actual:ocupacion_actual,
+							plazas:plazas,
+							fecha:fechayhora
 
 						})
 							.then(function (docRef) {
