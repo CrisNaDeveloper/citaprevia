@@ -134,7 +134,7 @@ var password = "aforo2020";
 		.then(function () {
 	
 						var operacion = parametroURL('operacion');
-
+						alertify.success("paso operacion"+operacion);
 			if(operacion=="alta"){
 				
 				alta();
