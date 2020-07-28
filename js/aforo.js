@@ -224,7 +224,7 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 function consulta(coordenadas) {
 	alertify.success("paso coordenadas"+coordenadas);
 
-	db.collection("aforo").where("coordenadas", "==", coordenadas).get()
+	db.collection("aforo").where("coordenadas", "==", "1").get()
 		.then((querySnapshot) => {
 
 			querySnapshot.forEach((doc) => {
@@ -232,22 +232,22 @@ function consulta(coordenadas) {
 
 				datos_consult = doc.data();
 
-				alertify.success("ocupacion recogida"+datos.ocupacion_actual);
+				alertify.success("ocupacion recogida"+datos_consult.ocupacion_actual);
 				window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
 				
-				 setTimeout(mensaje,50000);
+				 setTimeout(mensaje,5000);
 
 
 			});
 		});
-		//alertify.success("paso coordenadas");
+		alertify.success("paso coordenadas");
 	
 
 
 }
 
 function mensaje(){
-alertify.alert("settieme");
+alertify.error("settieme");
 window.location.href=("mobincube://action/section/introducir_ocupacion");
 }
 
