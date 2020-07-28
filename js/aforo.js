@@ -141,6 +141,13 @@ var password = "aforo2020";
 			}
 
 
+			if(operacion=="consulta"){
+				
+				consulta();
+			}
+
+
+
 
 
 		})
@@ -208,7 +215,8 @@ var preguntas_borrar = db.collection('preguntas').where('coordenadas', '==', coo
 						});
 					}		
 		
-function consultar(coordenadas) {
+function consulta(coordenadas) {
+	alertify.success("paso coordenadas");
 
 	db.collection("aforo").where("coordenadas", "==", coordenadas).get()
 		.then((querySnapshot) => {
@@ -218,13 +226,14 @@ function consultar(coordenadas) {
 
 				test = doc.data();
 
-				cargarListaTest(doc.id, test.nombre, test.numrespaprobar, test.premio);
+				
 
 
 			});
 		});
-
-
+		alertify.success("ocupacion recogida")+test.ocupacion_actual;
+		window.location.href=("mobincube://action/set/{var.ocupacion_actual+test.ocupacion_actual");
+		window.location.href=("mobincube://action/section/map_1")
 
 
 }
