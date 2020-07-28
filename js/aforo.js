@@ -231,9 +231,10 @@ function consulta(coordenadas) {
 
 			});
 		});
+		//alertify.success("paso coordenadas");
 		alertify.success("ocupacion recogida")+test.ocupacion_actual;
 		window.location.href=("mobincube://action/set/{var.ocupacion_actual+test.ocupacion_actual");
-		window.location.href=("mobincube://action/section/map_1")
+		window.location.href=("mobincube://action/section/introducir_ocupacion")
 
 
 }
