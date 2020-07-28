@@ -7,7 +7,7 @@ function parametroURL(_par) {
 		v = s[1] && decodeURIComponent(s[1]); //valor hacemos encode para prevenir url encode
 	  if (ll == _par) { //solo nos interesa si es el nombre del parametro a buscar
 		if(_p==null){
-	//	_p=v; //si es nula, quiere decir que no tiene valor, solo textual
+		_p=v; //si es nula, quiere decir que no tiene valor, solo textual
 		}else if(Array.isArray(_p)){
 		_p.push(v); //si ya es arreglo, agregamos este valor
 		}else{
@@ -123,6 +123,7 @@ function errorfecha(e) {
 
 
 var email = "";
+var coordenadas = "";
 
 
 function autenticar(){
@@ -142,8 +143,10 @@ var password = "aforo2020";
 
 
 			if(operacion=="consulta"){
-				alertify.success("paso operacion consulta"+coordenadas);
+	
+	
 				var operacion = parametroURL('coordenadas');
+				alertify.success("paso operacion consulta"+coordenadas);
 				consulta(coordenadas);
 			}
 
@@ -205,8 +208,8 @@ function alta() {
 
 
 function borrar(coordenadas){
-var preguntas_borrar = db.collection('preguntas').where('coordenadas', '==', coordenadas);
-					preguntas_borrar.get()
+var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
+					resul.get()
 						.then(function (querySnapshot) {
 							querySnapshot.forEach(function (doc) {
 								doc.ref.delete();
@@ -216,6 +219,8 @@ var preguntas_borrar = db.collection('preguntas').where('coordenadas', '==', coo
 						});
 					}		
 		
+
+					var datos_consult;
 function consulta(coordenadas) {
 	alertify.success("paso coordenadas"+coordenadas);
 
@@ -225,17 +230,17 @@ function consulta(coordenadas) {
 			querySnapshot.forEach((doc) => {
 
 
-				test = doc.data();
+				datos_consult = doc.data();
 
-				
+				alertify.success("ocupacion recogida")+datos.ocupacion_actual;
+				window.location.href=("mobincube://action/set/{var.ocupacion_actual+test.ocupacion_actual");
+				window.location.href=("mobincube://action/section/introducir_ocupacion")
 
 
 			});
 		});
 		//alertify.success("paso coordenadas");
-		alertify.success("ocupacion recogida")+test.ocupacion_actual;
-		window.location.href=("mobincube://action/set/{var.ocupacion_actual+test.ocupacion_actual");
-		window.location.href=("mobincube://action/section/introducir_ocupacion")
+	
 
 
 }
