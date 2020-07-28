@@ -233,8 +233,9 @@ function consulta(coordenadas) {
 				datos_consult = doc.data();
 
 				alertify.success("ocupacion recogida"+datos.ocupacion_actual);
-			//	window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
-				window.location.href=("mobincube://action/section/introducir_ocupacion");
+				window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
+				
+				Funct = setTimeout(mensaje,0);
 
 
 			});
@@ -244,7 +245,12 @@ function consulta(coordenadas) {
 
 
 }
+}
 
+function mensaje(){
+alertify.success("settieme");
+window.location.href=("mobincube://action/section/introducir_ocupacion");
+}
 
 function cargarcategorias() {
 	// db.collection("tests").get().then((querySnapshot) => {
