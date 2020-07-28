@@ -142,6 +142,7 @@ var password = "aforo2020";
 
 
 			if(operacion=="consulta"){
+				alertify.success("paso operacion consulta"+coordenadas);
 				var operacion = parametroURL('coordenadas');
 				consulta(coordenadas);
 			}
