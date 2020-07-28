@@ -7,7 +7,7 @@ function parametroURL(_par) {
 		v = s[1] && decodeURIComponent(s[1]); //valor hacemos encode para prevenir url encode
 	  if (ll == _par) { //solo nos interesa si es el nombre del parametro a buscar
 		if(_p==null){
-		_p=v; //si es nula, quiere decir que no tiene valor, solo textual
+	//	_p=v; //si es nula, quiere decir que no tiene valor, solo textual
 		}else if(Array.isArray(_p)){
 		_p.push(v); //si ya es arreglo, agregamos este valor
 		}else{
@@ -142,8 +142,8 @@ var password = "aforo2020";
 
 
 			if(operacion=="consulta"){
-				
-				consulta();
+				var operacion = parametroURL('coordenadas');
+				consulta(coordenadas);
 			}
 
 
@@ -216,7 +216,7 @@ var preguntas_borrar = db.collection('preguntas').where('coordenadas', '==', coo
 					}		
 		
 function consulta(coordenadas) {
-	alertify.success("paso coordenadas");
+	alertify.success("paso coordenadas"+coordenadas);
 
 	db.collection("aforo").where("coordenadas", "==", coordenadas).get()
 		.then((querySnapshot) => {
