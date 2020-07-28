@@ -232,9 +232,9 @@ function consulta(coordenadas) {
 
 				datos_consult = doc.data();
 
-				alertify.success("ocupacion recogida")+datos.ocupacion_actual;
-				window.location.href=("mobincube://action/set/{var.ocupacion_actual}"+test.ocupacion_actual+");
-				window.location.href=("mobincube://action/section/introducir_ocupacion")
+				alertify.success("ocupacion recogida"+datos.ocupacion_actual);
+				window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
+				window.location.href=("mobincube://action/section/introducir_ocupacion");
 
 
 			});
