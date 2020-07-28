@@ -245,7 +245,6 @@ function consulta(coordenadas) {
 
 
 }
-}
 
 function mensaje(){
 alertify.success("settieme");
