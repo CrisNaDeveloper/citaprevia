@@ -235,7 +235,7 @@ function consulta(coordenadas) {
 				alertify.success("ocupacion recogida"+datos.ocupacion_actual);
 				window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
 				
-				Funct = setTimeout(mensaje,0);
+				 setTimeout(mensaje,50000);
 
 
 			});
@@ -247,7 +247,7 @@ function consulta(coordenadas) {
 }
 
 function mensaje(){
-alertify.success("settieme");
+alertify.alert("settieme");
 window.location.href=("mobincube://action/section/introducir_ocupacion");
 }
 
