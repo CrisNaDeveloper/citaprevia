@@ -40,7 +40,12 @@ $("#provincia").hide();
 //$("#provincia").addClass("ui-disabled");
 $("#municipio").hide();
 //$("#municipio").addClass("ui-disabled");
+$("#plazas").hide();
+//$("#municipio").addClass("ui-disabled");
+$("#ocupacion_actual").hide();
+//$("#municipio").addClass("ui-disabled");
 }
+
       if(!firebase.apps.length){
 		firebase.initializeApp(config);
 		
@@ -166,16 +171,9 @@ var password = "aforo2020";
 				consulta(coordenadas);
 			}
 			if(operacion=="ninguna"){
-				$("#coordenadas").hide();
-				//$("#coordenadas").addClass("ui-disabled");
+
 				$("#nombre").show();
-				//$("#nombre").addClass("ui-disabled");
-				$("#provincia").hide();
-				//$("#provincia").addClass("ui-disabled");
-				$("#municipio").hide();
-				//$("#municipio").addClass("ui-disabled");
-				$("#buscar").hide();
-				//$("#municipio").addClass("ui-disabled");
+
 			}
 
 
@@ -296,8 +294,8 @@ function consulta(coordenadas) {
 }
 
 
-function bucar_coordenadas(){
-window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
+function bucar_coordenadas(nombre){
+window.location.href=("mobincube://action/set/{var.nombre}="+nombre);
 
 	setTimeout(mapa,5000);
 }
