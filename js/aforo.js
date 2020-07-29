@@ -166,14 +166,16 @@ var password = "aforo2020";
 				consulta(coordenadas);
 			}
 			if(operacion=="ninguna"){
-				$("#coordenadas").show();
-//$("#coordenadas").addClass("ui-disabled");
-$("#nombre").show();
-//$("#nombre").addClass("ui-disabled");
-$("#provincia").show();
-//$("#provincia").addClass("ui-disabled");
-$("#municipio").show();
-//$("#municipio").addClass("ui-disabled");
+				$("#coordenadas").hide();
+				//$("#coordenadas").addClass("ui-disabled");
+				$("#nombre").show();
+				//$("#nombre").addClass("ui-disabled");
+				$("#provincia").hide();
+				//$("#provincia").addClass("ui-disabled");
+				$("#municipio").hide();
+				//$("#municipio").addClass("ui-disabled");
+				$("#buscar").hide();
+				//$("#municipio").addClass("ui-disabled");
 			}
 
 
@@ -200,12 +202,20 @@ $("#municipio").show();
 
 function alta() {
 
-	nombre = $("#nombre").val();
+	var operacion = parametroURL('nombre');
+	var operacion = parametroURL('provincia');
+	var operacion = parametroURL('municipio');
+	var operacion = parametroURL('coordenadas');
+	var operacion = parametroURL('ocupacion_actual');
+	var operacion = parametroURL('plazas');
+
+
+/* 	nombre = $("#nombre").val();
 	provincia = $("#provincia").val();
 	municipio = 	$("#municipio").val();
 	coordenadas = 	$("#coordenadas").val();
 	ocupacion_actual = 	$("#ocupacion_actual").val();
-	plazas =	$("#plazas").val();
+	plazas =	$("#plazas").val(); */
 
 	$("#coordenadas").hide();
 	//$("#coordenadas").addClass("ui-disabled");
