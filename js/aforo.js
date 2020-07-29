@@ -28,11 +28,21 @@ var config = {
 };
 
 
+window.onload = function() { 
+$("#coordenadas").hide();
+//$("#coordenadas").addClass("ui-disabled");
+$("#nombre").hide();
+//$("#nombre").addClass("ui-disabled");
+$("#provincia").hide();
+//$("#provincia").addClass("ui-disabled");
+$("#municipio").hide();
+//$("#municipio").addClass("ui-disabled");
+}
       if(!firebase.apps.length){
 		firebase.initializeApp(config);
 		
 		autenticar();
-		$("#coordenadas").hide();
+	
 	     }
 
 var provider="";
@@ -150,6 +160,16 @@ var password = "aforo2020";
 				alertify.success("paso operacion consulta"+coordenadas);
 				consulta(coordenadas);
 			}
+			if(operacion=="ninguna"){
+				$("#coordenadas").show();
+//$("#coordenadas").addClass("ui-disabled");
+$("#nombre").show();
+//$("#nombre").addClass("ui-disabled");
+$("#provincia").show();
+//$("#provincia").addClass("ui-disabled");
+$("#municipio").show();
+//$("#municipio").addClass("ui-disabled");
+			}
 
 
 
@@ -237,6 +257,7 @@ function consulta(coordenadas) {
 				
 				$("#ocupacion_actual").val(datos_consult.ocupacion_actual);
 				$("#plazas").val(datos_consult.plazas);
+				alertify.success("fechayhora"+fechayhora);
 				$("#fecha").val(fechayhora);
 			
 	window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
