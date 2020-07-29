@@ -316,7 +316,7 @@ window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 }
 
 function mapa(){
-
+alerty.success("mapa");
 window.location.href=("mobincube://action/section/mapa");
 }
 
