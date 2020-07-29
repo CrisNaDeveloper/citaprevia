@@ -29,6 +29,9 @@ var config = {
 
 
 window.onload = function() { 
+
+	$("#fecha").append(fechayhora);
+
 $("#coordenadas").hide();
 //$("#coordenadas").addClass("ui-disabled");
 $("#nombre").hide();
@@ -60,13 +63,12 @@ var offsetRef = firebase.database().ref(".info/serverTimeOffset");
 offsetRef.on("value", damefechayhora, errorfecha);
 
 function damefechayhora(snap) {
-	
+
 	offset = snap.val();
 	timestamp = new Date().getTime() + offset;
 	//	timestamp=db.Timestamp;
 	
-
-
+	
 	var d = new Date(timestamp);
 	var day = d.getDate();
 	var month = d.getMonth() + 1;
@@ -85,7 +87,10 @@ function damefechayhora(snap) {
 	}
 
 	fechayhora = day + "/" + month + "/" + year + " " + curr_hour + ":" + curr_min + ":" + curr_sec;
-	//aquitengo fechay hora
+
+	$("#fecha").append(" "+fechayhora);
+
+
 	
 }
 
@@ -146,7 +151,7 @@ var password = "aforo2020";
 		.then(function () {
 	
 						var operacion = parametroURL('operacion');
-						alertify.success("paso operacion"+operacion);
+				
 			if(operacion=="alta"){
 				
 				alta();
@@ -157,7 +162,7 @@ var password = "aforo2020";
 	
 	
 				var operacion = parametroURL('coordenadas');
-				alertify.success("paso operacion consulta"+coordenadas);
+			
 				consulta(coordenadas);
 			}
 			if(operacion=="ninguna"){
@@ -243,7 +248,7 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 
 					var datos_consult;
 function consulta(coordenadas) {
-	alertify.success("paso coordenadas"+coordenadas);
+
 
 	db.collection("aforo").where("coordenadas", "==", "1").get()
 		.then((querySnapshot) => {
@@ -253,11 +258,11 @@ function consulta(coordenadas) {
 
 				datos_consult = doc.data();
 
-				alertify.success("ocupacion recogida"+datos_consult.ocupacion_actual);
+		
 				
 				$("#ocupacion_actual").val(datos_consult.ocupacion_actual);
 				$("#plazas").val(datos_consult.plazas);
-				alertify.success("fechayhora"+fechayhora);
+	
 				$("#fecha").val(fechayhora);
 			
 	window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
@@ -272,57 +277,8 @@ function consulta(coordenadas) {
 }
 
 function mensaje(){
-alertify.error("settieme");
+
 window.location.href=("mobincube://action/section/introducir_ocupacion");
 }
 
-function cargarcategorias() {
-	// db.collection("tests").get().then((querySnapshot) => {
 
-	let categoria = "";
-
-
-	$("#listacategorias").empty();
-	$("#listacategorias").select('refresh');
-	$("#listacategorias").append("<option value='--' selected >Seleccione una categoría...</option>");
-	db.collection("categorias").get()
-		.then((querySnapshot) => {
-
-			querySnapshot.forEach((doc) => {
-
-
-				categoria = doc.data();
-
-				$("#listacategorias").append(" <option value='" + categoria.id_categoria + "'>" + categoria.nombre + "</option>")
-
-
-
-			});
-		});
-			
-}
-
-function cargaredades() {
-	// db.collection("tests").get().then((querySnapshot) => {
-
-	let edad = "";
-	$("#listaedades").empty();
-	$("#listaedades").select('refresh');
-	$("#listaedades").append("<option value='--'  selected >Seleccione una edad...</option>");
-
-	db.collection("edades").get()
-		.then((querySnapshot) => {
-
-			querySnapshot.forEach((doc) => {
-
-
-				edad = doc.data();
-
-				$("#listaedades").append(" <option value='" + edad.id_edad + "'>" + edad.nombre + "</option>")
-
-
-
-			});
-		});
-
-}
