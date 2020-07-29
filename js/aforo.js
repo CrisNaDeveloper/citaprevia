@@ -131,7 +131,7 @@ function autenticar(){
 email = "aforo@prueba.com";
 var autor = firebase.auth();
 var password = "aforo2020";
-
+$("#coordenadas").addClass("ui-disabled")
 	firebase.auth().signInWithEmailAndPassword(email, password)
 		.then(function () {
 	
