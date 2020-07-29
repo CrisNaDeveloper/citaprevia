@@ -300,6 +300,7 @@ function bucar_coordenadas(){
 window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
 
 	setTimeout(mapa,5000);
+}
 
 function mapa(){
 
