@@ -221,7 +221,7 @@ function alta() {
 
 
 								alertify.success("Se ha añadido correctamente");
-
+							buscar_coordenadas(coordenadas);
 
 							})
 							.catch(function (error) {
@@ -265,20 +265,25 @@ function consulta(coordenadas) {
 	
 				$("#fecha").val(fechayhora);
 			
-	window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
-	//setTimeout(mensaje,5000);
+
 
 			});
 		});
-		alertify.success("paso coordenadas");
+	
 	
 
 
 }
 
-function mensaje(){
 
-window.location.href=("mobincube://action/section/introducir_ocupacion");
+function bucar_coordenadas(){
+window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
+
+	setTimeout(mapa,5000);
+
+function mapa(){
+
+window.location.href=("mobincube://action/section/mapa");
 }
 
 
