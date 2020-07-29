@@ -239,7 +239,7 @@ function alta() {
 
 
 								alertify.success("Se ha añadido correctamente");
-							buscar_coordenadas(coordenadas);
+							buscar_coordenadas();
 
 							})
 							.catch(function (error) {
@@ -294,7 +294,8 @@ function consulta(coordenadas) {
 }
 
 
-function buscar_coordenadas(nombre){
+function buscar_coordenadas(){
+	var nombre=$("#nombre").var();
 window.location.href=("mobincube://action/set/{var.nombre}="+nombre);
 
 	setTimeout(mapa,5000);
