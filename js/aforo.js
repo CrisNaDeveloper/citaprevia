@@ -295,7 +295,7 @@ function consulta(coordenadas) {
 
 
 function buscar_coordenadas(){
-	var nombre=$("#municipio").var();
+	var nombre=$("#municipio").val();
 window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 
 	setTimeout(mapa,5000);
