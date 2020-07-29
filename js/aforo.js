@@ -278,6 +278,8 @@ function consulta(coordenadas) {
 	//$("#municipio").addClass("ui-disabled");
 	$("#ocupacion_actual").show();
 	//$("#municipio").addClass("ui-disabled");
+	$("#buscar").hide();
+	//$("#municipio").addClass("ui-disabled");
 	db.collection("aforo").where("coordenadas", "==", "1").get()
 		.then((querySnapshot) => {
 
