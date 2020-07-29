@@ -233,10 +233,13 @@ function consulta(coordenadas) {
 				datos_consult = doc.data();
 
 				alertify.success("ocupacion recogida"+datos_consult.ocupacion_actual);
-			
 				
-				 setTimeout(mensaje,5000);
+				$("#ocupacion_actual").val(datos_consult.ocupacion_actual);
+				$("#plazas").val(datos_consult.plazas);
+				$("#fecha").val(fechayhora);
+			
 	window.location.href=("mobincube://action/set/{var.ocupacion_actual}="+datos.ocupacion_actual);
+	//setTimeout(mensaje,5000);
 
 			});
 		});
