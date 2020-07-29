@@ -200,14 +200,24 @@ $("#municipio").show();
 
 function alta() {
 
-	nombre = parametroURL('nombre');
-	provincia = parametroURL('provincia');
-	municipio = parametroURL('municipio');
-	coordenadas = parametroURL('coordenadas');
-	ocupacion_actual = parametroURL('ocupacion_actual');
-	plazas = parametroURL('plazas');
+	nombre = $("#nombre").val();
+	provincia = $("#provincia").val();
+	municipio = 	$("#municipio").val();
+	coordenadas = 	$("#coordenadas").val();
+	ocupacion_actual = 	$("#ocupacion_actual").val();
+	plazas =	$("#plazas").val();
 
+	$("#coordenadas").hide();
+	//$("#coordenadas").addClass("ui-disabled");
+	$("#nombre").hide();
+	//$("#nombre").addClass("ui-disabled");
+	$("#provincia").hide();
+	//$("#provincia").addClass("ui-disabled");
+	$("#municipio").hide();
+	//$("#municipio").addClass("ui-disabled")
 
+	$("#ocupacion_actual").hide();
+	$("#plazas").hide();
 							db.collection("aforo").add({
 							nombre:nombre,
 							provincia: provincia,
