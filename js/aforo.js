@@ -309,7 +309,7 @@ function consulta(coordenadas) {
 
 
 function buscar_coordenadas(){
-	var nombre=$("#municipio").val();
+	var municipio=$("#municipio").val();
 window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 
 	setTimeout(mapa,5000);
