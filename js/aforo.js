@@ -172,7 +172,7 @@ var password = "aforo2020";
 			}
 			if(operacion=="ninguna"){
 
-				$("#nombre").show();
+				$("#municipio").show();
 
 			}
 
@@ -295,8 +295,8 @@ function consulta(coordenadas) {
 
 
 function buscar_coordenadas(){
-	var nombre=$("#nombre").var();
-window.location.href=("mobincube://action/set/{var.nombre}="+nombre);
+	var nombre=$("#municipio").var();
+window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 
 	setTimeout(mapa,5000);
 }
