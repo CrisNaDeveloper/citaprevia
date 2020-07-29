@@ -44,6 +44,8 @@ $("#plazas").hide();
 //$("#municipio").addClass("ui-disabled");
 $("#ocupacion_actual").hide();
 //$("#municipio").addClass("ui-disabled");
+$("#buscar").hide();
+//$("#municipio").addClass("ui-disabled");
 }
 
       if(!firebase.apps.length){
