@@ -165,7 +165,6 @@ var password = "aforo2020";
 
 			if(operacion=="consulta"){
 	
-	
 				var operacion = parametroURL('coordenadas');
 			
 				consulta(coordenadas);
@@ -267,7 +266,18 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 					var datos_consult;
 function consulta(coordenadas) {
 
-
+	$("#coordenadas").show();
+	//$("#coordenadas").addClass("ui-disabled");
+	$("#nombre").show();
+	//$("#nombre").addClass("ui-disabled");
+	$("#provincia").show();
+	//$("#provincia").addClass("ui-disabled");
+	$("#municipio").show();
+	//$("#municipio").addClass("ui-disabled");
+	$("#plazas").show();
+	//$("#municipio").addClass("ui-disabled");
+	$("#ocupacion_actual").show();
+	//$("#municipio").addClass("ui-disabled");
 	db.collection("aforo").where("coordenadas", "==", "1").get()
 		.then((querySnapshot) => {
 
