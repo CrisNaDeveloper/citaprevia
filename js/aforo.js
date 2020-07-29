@@ -32,7 +32,7 @@ var config = {
 		firebase.initializeApp(config);
 		
 		autenticar();
-			$("#coordenadas").addClass("ui-disabled");
+		$("#coordenadas").hide();
 	     }
 
 var provider="";
@@ -131,7 +131,7 @@ function autenticar(){
 email = "aforo@prueba.com";
 var autor = firebase.auth();
 var password = "aforo2020";
-$("#coordenadas").addClass("ui-disabled")
+
 	firebase.auth().signInWithEmailAndPassword(email, password)
 		.then(function () {
 	
