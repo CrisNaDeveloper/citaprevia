@@ -309,15 +309,17 @@ function consulta(coordenadas) {
 
 
 function buscar_coordenadas(){
+	alerty.success("mapa2");
 	var municipio=$("#municipio").val();
-window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 
-	setTimeout(mapa,5000);
+	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
+//	setTimeout(mapa,1000);
+
 }
 
 function mapa(){
-alerty.success("mapa");
-window.location.href=("mobincube://action/section/mapa");
+alerty.success("mapa2");
+//window.location.href=("mobincube://action/section/mapa");
 }
 
 
