@@ -32,7 +32,8 @@ var config = {
 		firebase.initializeApp(config);
 		
 		autenticar();
-	      }
+			$("#coordenadas").addClass("ui-disabled");
+	     }
 
 var provider="";
 
