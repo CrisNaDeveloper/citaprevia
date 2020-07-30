@@ -43,14 +43,12 @@ $("#municipio").hide();
 $("#plazas").hide();
 //$("#municipio").addClass("ui-disabled");
 $("#ocupacion_actual").hide();
+$("#buscar").hide();
 
 
 
 $("#buscar").on("click", function(e) {
-
-
 	var municipio=$("#municipio").val();
-
 	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 	setTimeout(mapa,5000);
 })
