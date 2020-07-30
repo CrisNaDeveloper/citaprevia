@@ -326,7 +326,7 @@ window.location.href=("mobincube://action/section/mapa");
 
 function vista_mapa(){
 	alerty.success("vistamapa");
-	window.location.href=("mobincube://action/section/mapa");
+	window.location.href=("mobincube://action/section/map_1");
 	}
 	
 
