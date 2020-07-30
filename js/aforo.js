@@ -44,8 +44,22 @@ $("#plazas").hide();
 //$("#municipio").addClass("ui-disabled");
 $("#ocupacion_actual").hide();
 //$("#municipio").addClass("ui-disabled");
-$("#buscar").hide();
+//$("#buscar").hide();
 //$("#municipio").addClass("ui-disabled");
+
+
+
+$("#buscar").on("click", function(e) {
+
+
+	var municipio=$("#municipio").val();
+
+	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
+	setTimeout(mapa,5000);
+})
+
+
+
 }
 
       if(!firebase.apps.length){
@@ -171,14 +185,20 @@ var password = "aforo2020";
 			
 				consulta(coordenadas);
 			}
-			if(operacion=="ninguna"){
+			if(operacion=="buscar"){
 
 				$("#municipio").show();
+				$("#buscar").show();
 
 			}
 
 
-
+			if(operacion=="actualizo"){
+	
+				var operacion = parametroURL('coordenadas');
+			
+				actualizo(coordenadas);
+			}
 
 
 		})
@@ -296,7 +316,8 @@ function consulta(coordenadas) {
 				$("#plazas").val(datos_consult.plazas);
 	
 				$("#fecha").val(fechayhora);
-			
+				window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
+			setTimeout(vistamapa,5000);
 
 
 			});
@@ -308,18 +329,47 @@ function consulta(coordenadas) {
 }
 
 
-function buscar_coordenadas(){
-	alerty.success("mapa2");
-	var municipio=$("#municipio").val();
 
-	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
-//	setTimeout(mapa,1000);
 
-}
+
+
+
+
 
 function mapa(){
-alerty.success("mapa2");
-//window.location.href=("mobincube://action/section/mapa");
+alerty.success("mapa");
+window.location.href=("mobincube://action/section/mapa");
 }
 
 
+function vista_mapa(){
+	alerty.success("vistamapa");
+	window.location.href=("mobincube://action/section/mapa");
+	}
+	
+
+
+
+	function actualizo(coordenadas) {
+
+		var operacion = parametroURL('nombre');
+		var operacion = parametroURL('provincia');
+		var operacion = parametroURL('municipio');
+		var operacion = parametroURL('coordenadas');
+		var operacion = parametroURL('ocupacion_actual');
+		var operacion = parametroURL('plazas');
+	
+	
+
+			var update = db.collection('aforo').where('coordenadas', '==', coordenadas);
+			update.set({
+				nombre:nombre,
+				provincia: provincia,
+				municipio: municipio,
+				coordenadas: coordenadas,
+				ocupacion_actual:ocupacion_actual,
+				plazas:plazas,
+				fecha:fechayhora
+			})
+							
+	}
