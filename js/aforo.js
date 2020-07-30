@@ -308,13 +308,13 @@ function consulta(coordenadas) {
 
 
 function mapa(){
-alerty.success("mapa");
+	alertify.success("mapa");
 window.location.href=("mobincube://action/section/mapa");
 }
 
 
 function vista_mapa(){
-	alerty.success("vistamapa");
+	alertify.success("vistamapa");
 	window.location.href=("mobincube://action/section/map_1");
 	}
 	
