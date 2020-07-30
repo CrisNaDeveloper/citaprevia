@@ -43,9 +43,6 @@ $("#municipio").hide();
 $("#plazas").hide();
 //$("#municipio").addClass("ui-disabled");
 $("#ocupacion_actual").hide();
-//$("#municipio").addClass("ui-disabled");
-//$("#buscar").hide();
-//$("#municipio").addClass("ui-disabled");
 
 
 
@@ -57,7 +54,6 @@ $("#buscar").on("click", function(e) {
 	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
 	setTimeout(mapa,5000);
 })
-
 
 
 }
@@ -120,10 +116,6 @@ function damefechayhora(snap) {
 
 function formateofecha(fecha) {
 
-
-
-
-
 	var day = fecha.getDate();
 	var month = fecha.getMonth() + 1;
 	var year = fecha.getFullYear();
@@ -148,14 +140,6 @@ function errorfecha(e) {
 
 	console.log("error" + e);
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -361,8 +345,8 @@ function vista_mapa(){
 	
 	
 
-			var update = db.collection('aforo').where('coordenadas', '==', coordenadas);
-			update.set({
+			var acctualiz = db.collection('aforo').where('coordenadas', '==', coordenadas);
+			actualiz.set({
 				nombre:nombre,
 				provincia: provincia,
 				municipio: municipio,
