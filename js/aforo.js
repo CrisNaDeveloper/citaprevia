@@ -163,8 +163,9 @@ var password = "aforo2020";
 
 			if(operacion=="consulta"){
 	
-				var operacion = parametroURL('coordenadas');
-			
+				var coordenadas = parametroURL('coordenadas');
+			alertify("coordenadas0".coordenadas[0]);
+			alertify("coordenadas1".coordenadas[1]);
 				consulta(coordenadas);
 			}
 			if(operacion=="buscar"){
@@ -190,15 +191,6 @@ var password = "aforo2020";
 		});
 
 }
-
-
-
-
-
-
-
-
-
 
 
 function alta() {
@@ -305,9 +297,6 @@ function consulta(coordenadas) {
 			});
 		});
 	
-	
-
-
 }
 
 
