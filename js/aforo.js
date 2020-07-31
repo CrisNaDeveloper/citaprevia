@@ -55,12 +55,11 @@ window.onload = function() {
 
 }
 
-      if(!firebase.apps.length){
-		firebase.initializeApp(config);
-		
-		autenticar();
+if(!firebase.apps.length){
+	firebase.initializeApp(config);		
+	autenticar();
 	
-	     }
+ }
 
 var provider="";
 
@@ -152,7 +151,7 @@ var password = "aforo2020";
 	firebase.auth().signInWithEmailAndPassword(email, password)
 		.then(function () {
 	
-						var operacion = parametroURL('operacion');
+		var operacion = parametroURL('operacion');
 				
 			if(operacion=="alta"){
 				
@@ -161,9 +160,7 @@ var password = "aforo2020";
 
 
 			if(operacion=="consulta"){
-		
 				
-			
 				window.location.href="mobincube://javascript/variblesConsulta('{location}','{var.coordenadas}')";
 		
 			}
@@ -204,23 +201,12 @@ function variblesActualizo(coractu,variactu){
 	alertify.success(coractu);
 	alertify.success(variactu);
 	
-	actualizo(vari);
+	actualizo(coractu);
 	
 }
 
 
 function alta() {
-
-	var operacion = parametroURL('nombre');
-	var operacion = parametroURL('provincia');
-	var operacion = parametroURL('municipio');
-	var operacion = parametroURL('coordenadas');
-	var operacion = parametroURL('ocupacion_actual');
-	var operacion = parametroURL('plazas');
-
-
-
-
 	$("#coordenadas").hide();
 	//$("#coordenadas").addClass("ui-disabled");
 	$("#nombre").hide();
@@ -275,7 +261,7 @@ var datos_consult;
 
 
 
-function consulta(coordenadas) {
+function consulta(coo) {
 
 	$("#coordenadas").show();
 	//$("#coordenadas").addClass("ui-disabled");
@@ -291,7 +277,7 @@ function consulta(coordenadas) {
 	//$("#municipio").addClass("ui-disabled");
 	$("#buscar").hide();
 	//$("#municipio").addClass("ui-disabled");
-	db.collection("aforo").where("coordenadas", "==", coordenadas).get()
+	db.collection("aforo").where("coordenadas", "==", coo).get()
 		.then((querySnapshot) => {
 
 			querySnapshot.forEach((doc) => {
@@ -306,8 +292,8 @@ function consulta(coordenadas) {
 				$("#ocupacion_actual").val(datos_consult.ocupacion_actual);
 				$("#plazas").val(datos_consult.plazas);	
 				$("#fecha").val(fechayhora);
-			//	window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
-			//setTimeout(vistamapa,1000);
+				alertify.success("Datos en consulta");
+			
 
 
 			});
@@ -330,7 +316,7 @@ function mapa(){
 window.location.href=("mobincube://action/section/mapa");
 }
 
-function actualizo(coordenadasl) {
+function actualizo(coordenadas) {
 			var nombre=$("#nombre").val();
 			var provincia=$("#provincia").val();
 			var municipio=$("#municipio").val();
@@ -345,5 +331,7 @@ function actualizo(coordenadasl) {
 							ocupacion_actual:ocupacion_actual,
 							plazas:plazas,
 							fecha:fechayhora
-						})										
+						})				
+							window.location.href=("mobincube://action/set/{var.coordenadas}="+coo);
+				setTimeout(vistamapa,1000);						
 	}
