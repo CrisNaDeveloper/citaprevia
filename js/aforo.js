@@ -163,12 +163,15 @@ var password = "aforo2020";
 
 			if(operacion=="consulta"){
 	
-				var coordenadas = parametroURL('coordenadas');
-			alertify.success(coordenadas);
+				
+				
 			
-window.location.href="mobincube://javascript/getVariables('{coordenas}')"
-				consulta(coordenadas);
+				window.location.href="mobincube://javascript/getVariables('{coordenadas}')"
+		
 			}
+
+
+
 			if(operacion=="buscar"){
 
 				$("#municipio").show();
@@ -263,7 +266,8 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 					var datos_consult;
 
 
-function getVariables(coordenas){
+function getVariables(coordenadas){
+	consulta(coordenadas);
 	alertify.success(coordenadas);
 }
 
