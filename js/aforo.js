@@ -31,27 +31,26 @@ var config = {
 window.onload = function() { 
 
 	$("#fecha").append(fechayhora);
-
-$("#coordenadas").hide();
-//$("#coordenadas").addClass("ui-disabled");
-$("#nombre").hide();
-//$("#nombre").addClass("ui-disabled");
-$("#provincia").hide();
-//$("#provincia").addClass("ui-disabled");
-$("#municipio").hide();
-//$("#municipio").addClass("ui-disabled");
-$("#plazas").hide();
-//$("#municipio").addClass("ui-disabled");
-$("#ocupacion_actual").hide();
-$("#buscar").hide();
-
+	$("#coordenadas").hide();
+	//$("#coordenadas").addClass("ui-disabled");
+	$("#nombre").show();
+	//$("#nombre").addClass("ui-disabled");
+	$("#provincia").show();
+	//$("#provincia").addClass("ui-disabled");
+	$("#municipio").show();
+	//$("#municipio").addClass("ui-disabled");
+	$("#plazas").show();
+	//$("#municipio").addClass("ui-disabled");
+	$("#ocupacion_actual").show();
+	$("#buscar").hide();
 
 
-$("#buscar").on("click", function(e) {
-	var municipio=$("#municipio").val();
-	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
-	setTimeout(vista_municipio,000);
-})
+
+	$("#buscar").on("click", function(e) {
+		var municipio=$("#municipio").val();
+		window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
+		setTimeout(vista_municipio,000);
+	})
 
 
 }
@@ -162,11 +161,10 @@ var password = "aforo2020";
 
 
 			if(operacion=="consulta"){
-	
-				
+		
 				
 			
-				window.location.href="mobincube://javascript/getVariables('{location}','{var.coordenadas}')";
+				window.location.href="mobincube://javascript/variblesConsulta('{location}','{var.coordenadas}')";
 		
 			}
 
@@ -181,10 +179,10 @@ var password = "aforo2020";
 
 
 			if(operacion=="actualizo"){
-	
-				var coordenadas = parametroURL('coordenadas');
+				window.location.href="mobincube://javascript/variblesActualizo('{location}','{var.coordenadas}')";
+				
 			
-				actualizo(coordenadas);
+				
 			}
 
 
@@ -195,11 +193,18 @@ var password = "aforo2020";
 		});
 
 }
-function getVariables(cor,vari){
-	alertify.success(cor);
-	alertify.success(vari);
+function variblesConsulta(corcon,varicon){
+	alertify.success(corcon);
+	alertify.success(varicon);
 	
-	consulta(vari);
+	consulta(corcon);
+	
+}
+function variblesActualizo(coractu,variactu){
+	alertify.success(coractu);
+	alertify.success(variactu);
+	
+	actualizo(vari);
 	
 }
 
@@ -214,12 +219,7 @@ function alta() {
 	var operacion = parametroURL('plazas');
 
 
-/* 	nombre = $("#nombre").val();
-	provincia = $("#provincia").val();
-	municipio = 	$("#municipio").val();
-	coordenadas = 	$("#coordenadas").val();
-	ocupacion_actual = 	$("#ocupacion_actual").val();
-	plazas =	$("#plazas").val(); */
+
 
 	$("#coordenadas").hide();
 	//$("#coordenadas").addClass("ui-disabled");
@@ -270,17 +270,12 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 					}		
 		
 
-					var datos_consult;
+var datos_consult;
 
 
 
 
 function consulta(coordenadas) {
-
-
-
-
-
 
 	$("#coordenadas").show();
 	//$("#coordenadas").addClass("ui-disabled");
@@ -305,24 +300,20 @@ function consulta(coordenadas) {
 				datos_consult = doc.data();
 
 		
-				
+				$("#nombre").val(datos_consult.nombre);
+				$("#provincia").val(datos_consult.provincia);
+				$("#municipio").val(datos_consult.provincia);
 				$("#ocupacion_actual").val(datos_consult.ocupacion_actual);
-				$("#plazas").val(datos_consult.plazas);
-	
+				$("#plazas").val(datos_consult.plazas);	
 				$("#fecha").val(fechayhora);
-				window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
-			setTimeout(vistamapa,1000);
+			//	window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
+			//setTimeout(vistamapa,1000);
 
 
 			});
 		});
 	
 }
-
-
-
-
-
 
 
 function vista_mapa(){
@@ -339,31 +330,20 @@ function mapa(){
 window.location.href=("mobincube://action/section/mapa");
 }
 
-
-	
-
-
-
-	function actualizo(coordenadas) {
-
-		var operacion = parametroURL('nombre');
-		var operacion = parametroURL('provincia');
-		var operacion = parametroURL('municipio');
-		var operacion = parametroURL('coordenadas');
-		var operacion = parametroURL('ocupacion_actual');
-		var operacion = parametroURL('plazas');
-	
-	
-
-			var acctualiz = db.collection('aforo').where('coordenadas', '==', coordenadas);
-			actualiz.set({
-				nombre:nombre,
-				provincia: provincia,
-				municipio: municipio,
-				coordenadas: coordenadas,
-				ocupacion_actual:ocupacion_actual,
-				plazas:plazas,
-				fecha:fechayhora
-			})
-							
+function actualizo(coordenadasl) {
+			var nombre=$("#nombre").val();
+			var provincia=$("#provincia").val();
+			var municipio=$("#municipio").val();
+			var ocupacion_actual=$("#ocupacion_actual").val();
+			var plazas=$("#plazas").val();
+				
+						var acctualiz = db.collection('aforo').where('coordenadas', '==', coordenadas);
+						actualiz.set({
+							nombre:nombre,
+							provincia: provincia,
+							municipio: municipio,
+							ocupacion_actual:ocupacion_actual,
+							plazas:plazas,
+							fecha:fechayhora
+						})										
 	}
