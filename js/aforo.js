@@ -152,7 +152,7 @@ var password = "aforo2020";
 		.then(function () {
 	
 		var operacion = parametroURL('operacion');
-				
+		var cp = parametroURL('coordenadas');
 			if(operacion=="alta"){
 				
 				alta();
@@ -161,7 +161,7 @@ var password = "aforo2020";
 
 			if(operacion=="consulta"){
 				
-				window.location.href="mobincube://javascript/variblesConsulta('{location}','(coordenadas)')";
+				window.location.href="mobincube://javascript/variblesConsulta('{location}','coordenadas')";
 		
 			}
 
@@ -189,6 +189,7 @@ var password = "aforo2020";
 
 }
 function variblesConsulta(corcon,varicon){
+	alertify.success(cp);
 	alertify.success(corcon);
 	alertify.success(varicon);	
 	consulta(corcon);
