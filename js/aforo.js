@@ -166,7 +166,7 @@ var password = "aforo2020";
 				var coordenadas = parametroURL('coordenadas');
 			alertify.success(coordenadas);
 			
-window.location.href="mobincube://javascript/getVariables({coordenas})"
+window.location.href="mobincube://javascript/getVariables('{coordenas}')"
 				consulta(coordenadas);
 			}
 			if(operacion=="buscar"){
@@ -179,7 +179,7 @@ window.location.href="mobincube://javascript/getVariables({coordenas})"
 
 			if(operacion=="actualizo"){
 	
-				var operacion = parametroURL('coordenadas');
+				var coordenadas = parametroURL('coordenadas');
 			
 				actualizo(coordenadas);
 			}
