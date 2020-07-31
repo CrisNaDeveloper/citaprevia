@@ -176,6 +176,7 @@ var password = "aforo2020";
 
 
 			if(operacion=="actualizo"){
+				alertify.success(cp);
 				window.location.href="mobincube://javascript/variblesActualizo('{location}','{var.coordenadas}')";
 							
 			}
@@ -189,7 +190,7 @@ var password = "aforo2020";
 
 }
 function variblesConsulta(corcon,varicon){
-	alertify.success(cp);
+	
 	alertify.success(corcon);
 	alertify.success(varicon);	
 	consulta(corcon);
