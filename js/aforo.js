@@ -50,7 +50,7 @@ $("#buscar").hide();
 $("#buscar").on("click", function(e) {
 	var municipio=$("#municipio").val();
 	window.location.href=("mobincube://action/set/{var.municipio}="+municipio);
-	setTimeout(mapa,5000);
+	setTimeout(vista_municipio,000);
 })
 
 
@@ -276,7 +276,7 @@ function consulta(coordenadas) {
 	//$("#municipio").addClass("ui-disabled");
 	$("#buscar").hide();
 	//$("#municipio").addClass("ui-disabled");
-	db.collection("aforo").where("coordenadas", "==", "1").get()
+	db.collection("aforo").where("coordenadas", "==", coordenadas).get()
 		.then((querySnapshot) => {
 
 			querySnapshot.forEach((doc) => {
@@ -291,7 +291,7 @@ function consulta(coordenadas) {
 	
 				$("#fecha").val(fechayhora);
 				window.location.href=("mobincube://action/set/{var.coordenadas}="+coordenadas);
-			setTimeout(vistamapa,5000);
+			setTimeout(vistamapa,1000);
 
 
 			});
@@ -305,18 +305,21 @@ function consulta(coordenadas) {
 
 
 
+function vista_mapa(){
+	alertify.success("vistamapa");
+	window.location.href=("mobincube://action/section/map_1");
+	}
 
-
+	function vista_municipio(){
+		alertify.success("vistamunicipio");
+		window.location.href=("mobincube://action/section/vista_mu");
+		}
 function mapa(){
 	alertify.success("mapa");
 window.location.href=("mobincube://action/section/mapa");
 }
 
 
-function vista_mapa(){
-	alertify.success("vistamapa");
-	window.location.href=("mobincube://action/section/map_1");
-	}
 	
 
 
