@@ -166,6 +166,7 @@ var password = "aforo2020";
 				var coordenadas = parametroURL('coordenadas');
 			alertify.success(coordenadas);
 			
+windows.location.href="mobicube://javascript/getVariables({coordenas})"
 				consulta(coordenadas);
 			}
 			if(operacion=="buscar"){
@@ -260,7 +261,19 @@ var borrar = db.collection('aforo').where('coordenadas', '==', coordenadas);
 		
 
 					var datos_consult;
+
+
+function getVariables(coordenas){
+	alertify.success(coordenadas);
+}
+
+
 function consulta(coordenadas) {
+
+
+
+
+
 
 	$("#coordenadas").show();
 	//$("#coordenadas").addClass("ui-disabled");
