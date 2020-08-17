@@ -161,7 +161,7 @@ var password = "aforo2020";
 
 			if(operacion=="consulta"){
 				alertify.success(cp);
-				window.location.href="mobincube://javascript/variblesConsulta('{var.coordenadas}','[coordenadas]')";
+				window.location.href="mobincube://javascript/variblesConsulta('{var.coordenadas}','{coordenadas}')";
 		
 			}
 
