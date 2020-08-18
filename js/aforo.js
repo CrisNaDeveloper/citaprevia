@@ -191,14 +191,19 @@ var password = "aforo2020";
 
 }
 function variblesConsulta(corcon, varicon, loca){
+	setTimeout(alerto,1000);		
 	
+	
+}
+
+function alerto(){
 	alertify.success(corcon);
 	alertify.success(varicon);	
 	alertify.success(loca);
 
-	consulta(loca);	
-	
+	consulta(loca);
 }
+
 function variblesActualizo(coractu,variactu){
 	alertify.success(coractu);
 	alertify.success(variactu);	
