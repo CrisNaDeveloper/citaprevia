@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+
+
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
+  <!-- Comment out (or don't include) services that you don't want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__es.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+
+  <link rel="stylesheet" href="themes/alertify.core.css" />
+  <link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+
+  <script src="lib/alertify.min.js"></script>
+
+
+  <script type="text/javascript" src="data.json"></script>
+  <script src="js/aforo.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk"></script>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Using MySQL and PHP with Google Maps</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<html>
+
+<body>
+  <div id="map"></div>
+
+  <script>
+   
+    var customLabel = {
+      restaurant: {
+        label: 'R'
+      },
+      bar: {
+        label: 'B'
+      }
+    };
+ 
+
+    function initMap() {
+      alert('Llamando a initmap');
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(40.741816, -4.751395),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+
+      var infoWindow = new google.maps.InfoWindow;
+  
+  
+
+    db.collection("aforo").get().then((querySnapshot) => {
+
+      querySnapshot.forEach((doc) => {
+
+
+        var datos_consult = doc.data();
+
+        var lugar = datos_consult.nombre;
+        var direccion = datos_consult.direccion;
+        var aforo = datos_consult.aforo;
+       var point = new google.maps.LatLng(parseFloat(datos_consult.coordenadas));
+        //parseFloat(markerElem.getAttribute('lng'))
+
+
+        var infowincontent = document.createElement('div');
+        var strong = document.createElement('strong');
+        strong.textContent = lugar
+        infowincontent.appendChild(strong);
+        infowincontent.appendChild(document.createElement('br'));
+
+        var text = document.createElement('text');
+        text.textContent = direccion;
+        infowincontent.appendChild(text);
+        var icon = customLabel[lugar] || {};
+        var marker = new google.maps.Marker({
+          map: map,
+          position: point,
+          label: icon.label
+        });
+        marker.addListener('click', function () {
+          infoWindow.setContent(infowincontent);
+          infoWindow.open(map, marker);
+        });
+
+
+      });
+    });
+
+  }
+
+
+
+
+    function doNothing() { }
+  </script>
+ <!--script defer
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU&callback=initMap">
+ </script-->
+</body>
+
+</html>
