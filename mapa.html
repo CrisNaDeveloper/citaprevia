@@ -34,11 +34,10 @@
   <script type="text/javascript" src="data.json"></script>
   <script src="js/aforo.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script>
+  <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script-->
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>Using MySQL and PHP with Google Maps</title>
+  <title>Aforo</title>
   <style>
     /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -56,8 +55,6 @@
   </style>
 </head>
 
-<html>
-
 <body>
   <div id="map"></div>
 
@@ -71,35 +68,51 @@
         label: 'B'
       }
     };
- 
+
 
     function initMap() {
-      alert('Llamando a initmap');
+
+
+    db.collection("aforo").get().then((querySnapshot) => {
       var map = new google.maps.Map(document.getElementById('map'), {
-        center: new google.maps.LatLng(40.741816, -4.751395),
+        center: new google.maps.LatLng(40.739723,-4.746647),
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
 
-      var infoWindow = new google.maps.InfoWindow;
-  
-  
 
-    db.collection("aforo").get().then((querySnapshot) => {
+     var infoWindow = new google.maps.InfoWindow;
+
 
       querySnapshot.forEach((doc) => {
 
+     
 
         var datos_consult = doc.data();
+
+        var coordenadas=datos_consult.coordenadas
+        var separador = ",";
+      
+        var textoseparado = coordenadas.split(separador);
+          latitud = textoseparado[0];
+          longitud = textoseparado[1];
+    
 
         var lugar = datos_consult.nombre;
         var direccion = datos_consult.direccion;
         var aforo = datos_consult.aforo;
-       var point = new google.maps.LatLng(parseFloat(datos_consult.coordenadas));
-        //parseFloat(markerElem.getAttribute('lng'))
+       var point = new google.maps.LatLng(datos_consult.coordenadas);
 
 
+
+  
+
+
+
+     
+
+       
         var infowincontent = document.createElement('div');
         var strong = document.createElement('strong');
         strong.textContent = lugar
@@ -109,18 +122,70 @@
         var text = document.createElement('text');
         text.textContent = direccion;
         infowincontent.appendChild(text);
-        var icon = customLabel[lugar] || {};
+        infowincontent.appendChild(document.createElement('br'));
+
+
+        var aforo_total = document.createElement('text');
+        aforo_total.textContent= "Aforo total: ";
+        infowincontent.appendChild(aforo_total);
+        var aforo_total_valor=document.createElement('input');
+        aforo_total_valor.size="6";
+        aforo_total_valor.value=datos_consult.aforo_total;
+        infowincontent.appendChild(aforo_total_valor); 
+
+
+
+         
+        infowincontent.appendChild(document.createElement('br'));
+        var aforo_actual_texto = document.createElement('text');
+        aforo_actual_texto.textContent= "Aforo actual: " ;
+        infowincontent.appendChild(aforo_actual_texto);     
+
+        var aforo_actual_valor=document.createElement('input');
+        aforo_actual_valor.size="6";
+        aforo_actual_valor.value=datos_consult.aforo_actual;
+        infowincontent.appendChild(aforo_actual_valor);     
+
+  infowincontent.appendChild(document.createElement('br'));
+        var fecha_actu = document.createElement('text');
+        fecha_actu.textContent= "actualizado a fecha: "+datos_consult.actualizacion;
+        infowincontent.appendChild(fecha_actu);
+
+
+
+        infowincontent.appendChild(document.createElement('br'));
+        var actualizo=document.createElement('button');
+        actualizo.id=datos_consult.coordenadas;
+        actualizo.textContent= "Actualizar"         
+        infowincontent.appendChild(actualizo);
+
+
+
+
+
+
+
+       
+     
+        var icon = customLabel["restaurant"] || {};
         var marker = new google.maps.Marker({
           map: map,
-          position: point,
+          position: new google.maps.LatLng(latitud,longitud),
+          
           label: icon.label
-        });
+        }); 
+
+
+
+
         marker.addListener('click', function () {
+
+      
           infoWindow.setContent(infowincontent);
           infoWindow.open(map, marker);
         });
 
-
+      
       });
     });
 
@@ -131,9 +196,9 @@
 
     function doNothing() { }
   </script>
- <!--script defer
- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU&callback=initMap">
- </script-->
+   <script defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU&libraries=visualization&callback=initMap">
+</script>
 </body>
 
 </html>

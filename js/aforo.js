@@ -34,12 +34,6 @@ window.onload = function () {
 
 
 
-	$("#buscar").on("click", function (e) {
-		var municipio = $("#municipio").val();
-		window.location.href = ("mobincube://action/set/{var.municipio}=" + municipio);
-		setTimeout(vista_municipio, 000);
-	})
-
 
 }
 
