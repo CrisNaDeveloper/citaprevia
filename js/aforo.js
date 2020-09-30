@@ -228,7 +228,6 @@ var datos_consult;
 
 function consulta(coo) {
 
-
 	db.collection("aforo").where("coordenadas", "==", coo).get()
 		.then((querySnapshot) => {
 
@@ -260,24 +259,30 @@ function mapa() {
 	window.location.href = ("mobincube://action/section/mapa");
 }
 
-function actualizo(coordenadas) {
-	var nombre = $("#nombre").val();
-	var provincia = $("#provincia").val();
-	var municipio = $("#municipio").val();
-	var ocupacion_actual = $("#ocupacion_actual").val();
-	var plazas = $("#plazas").val();
+function actualizar(coordenadas,aforo_total,aforo_actual) {
 
-	var acctualiz = db.collection('aforo').where('coordenadas', '==', coordenadas);
-	actualiz.set({
-		nombre: nombre,
-		provincia: provincia,
-		municipio: municipio,
-		ocupacion_actual: ocupacion_actual,
-		plazas: plazas,
-		fecha: fechayhora
-	})
-	window.location.href = ("mobincube://action/set/{var.coordenadas}=" + coo);
-	setTimeout(vistamapa, 1000);
+
+	//var aforo_actual = $("#aforo_total_valor").val();
+	//var aforo_total = $("#aforo_actual_valor").val();
+
+
+
+
+//	db.collection('aforo').where("coordenadas", "==", coordenadas).get().then(querySnapshot => {
+//		querySnapshot.forEach(doc => {
+
+	db.collection('aforo').doc(coordenadas).set({
+		
+			aforo_actual: aforo_actual,
+			aforo_total: aforo_total,
+			fecha: fechayhora
+		  }, { merge: true });
+	//	})
+	  //})
+
+
+//	window.location.href = ("mobincube://action/set/{var.coordenadas}=" + coo);
+//	setTimeout(vistamapa, 1000);
 }
 
 
@@ -292,3 +297,4 @@ coleccion.doc(elemento).set(data[0][elemento]);
 
 }
 }*/
+

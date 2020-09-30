@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="themes/alertify.core.css" />
   <link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
 
-
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="lib/alertify.min.js"></script>
 
 
@@ -106,12 +106,6 @@
 
 
 
-  
-
-
-
-     
-
        
         var infowincontent = document.createElement('div');
         var strong = document.createElement('strong');
@@ -139,6 +133,7 @@
         infowincontent.appendChild(document.createElement('br'));
         var aforo_actual_texto = document.createElement('text');
         aforo_actual_texto.textContent= "Aforo actual: " ;
+        
         infowincontent.appendChild(aforo_actual_texto);     
 
         var aforo_actual_valor=document.createElement('input');
@@ -148,6 +143,7 @@
 
   infowincontent.appendChild(document.createElement('br'));
         var fecha_actu = document.createElement('text');
+        
         fecha_actu.textContent= "actualizado a fecha: "+datos_consult.actualizacion;
         infowincontent.appendChild(fecha_actu);
 
@@ -155,17 +151,14 @@
 
         infowincontent.appendChild(document.createElement('br'));
         var actualizo=document.createElement('button');
-        actualizo.id=datos_consult.coordenadas;
-        actualizo.textContent= "Actualizar"         
+        actualizo.id=datos_consult.id;
+        actualizo.textContent= "Actualizar"         ;
+        actualizo.value= datos_consult.nombre;
         infowincontent.appendChild(actualizo);
 
 
 
-
-
-
-
-       
+         
      
         var icon = customLabel["restaurant"] || {};
         var marker = new google.maps.Marker({
@@ -176,24 +169,36 @@
         }); 
 
 
+        //boton="'#"+datos_consult.nombre+"'";
 
-
-        marker.addListener('click', function () {
-
-      
-          infoWindow.setContent(infowincontent);
-          infoWindow.open(map, marker);
+        actualizo.addEventListener('click', function () {
+            fecha_actu.textContent=fechayhora;
+          actualizar(datos_consult.coordenadas,aforo_total_valor.value,aforo_actual_valor.value);
         });
 
-      
-      });
+
+    
+
+        marker.addListener('click', function () {
+          infoWindow.setContent(infowincontent);
+          infoWindow.open(map, marker);
+        
+        });
+
+
+        
+   
     });
 
+
+  
+
+  });
   }
 
 
-
-
+ 
+  
     function doNothing() { }
   </script>
    <script defer
