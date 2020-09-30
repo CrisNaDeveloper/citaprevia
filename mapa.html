@@ -60,15 +60,7 @@
 
   <script>
    
-    var customLabel = {
-      restaurant: {
-        label: 'R'
-      },
-      bar: {
-        label: 'B'
-      }
-    };
-
+   
 
     function initMap() {
 
@@ -157,15 +149,53 @@
         infowincontent.appendChild(actualizo);
 
 
+        var iconoalto={url: 'css/images/alto.png',
+        size: new google.maps.Size(32, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
 
-         
+
+        var iconomedio={ 
+           url: 'css/images/medio.png',
+        size: new google.maps.Size(32, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+        var iconobajo={ 
+          url: 'css/images/bajo.png',
+        size: new google.maps.Size(32, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  }
+       
+
+ 
+      
+
+
+        var porcentaje=(datos_consult.aforo_actual/datos_consult.aforo_total)*100;
+         if(porcentaje>70){
+           icon = iconoalto;
+         }else if(porcentaje<70&&porcentaje>50){
+          icon = iconomedio;
+         }else{
+          icon = iconobajo;
+
+         }
      
-        var icon = customLabel["restaurant"] || {};
+     
         var marker = new google.maps.Marker({
           map: map,
           position: new google.maps.LatLng(latitud,longitud),
-          
-          label: icon.label
+          icon: icon
+         // label: icon.label
         }); 
 
 
