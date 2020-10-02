@@ -254,35 +254,17 @@ function consulta(coo) {
 
 
 
-function mapa() {
-	alertify.success("mapa");
-	window.location.href = ("mobincube://action/section/mapa");
-}
+
 
 function actualizar(coordenadas,aforo_total,aforo_actual) {
-
-
-	//var aforo_actual = $("#aforo_total_valor").val();
-	//var aforo_total = $("#aforo_actual_valor").val();
-
-
-
-
-//	db.collection('aforo').where("coordenadas", "==", coordenadas).get().then(querySnapshot => {
-//		querySnapshot.forEach(doc => {
 
 	db.collection('aforo').doc(coordenadas).set({
 		
 			aforo_actual: aforo_actual,
 			aforo_total: aforo_total,
-			fecha: fechayhora
+			actualizacion: fechayhora
 		  }, { merge: true });
-	//	})
-	  //})
-
-
-//	window.location.href = ("mobincube://action/set/{var.coordenadas}=" + coo);
-//	setTimeout(vistamapa, 1000);
+	
 }
 
 

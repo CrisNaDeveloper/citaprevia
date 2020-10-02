@@ -59,181 +59,269 @@
   <div id="map"></div>
 
   <script>
-   
-   
+
+
 
     function initMap() {
-
-
-    db.collection("aforo").get().then((querySnapshot) => {
       var map = new google.maps.Map(document.getElementById('map'), {
-        center: new google.maps.LatLng(40.739723,-4.746647),
+        center: new google.maps.LatLng(40.739723, -4.746647),
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
+      db.collection("aforo").get().then((querySnapshot) => {
 
 
-     var infoWindow = new google.maps.InfoWindow;
 
 
-      querySnapshot.forEach((doc) => {
+        var infoWindow = new google.maps.InfoWindow;
 
-     
 
-        var datos_consult = doc.data();
+        querySnapshot.forEach((doc) => {
 
-        var coordenadas=datos_consult.coordenadas
-        var separador = ",";
-      
-        var textoseparado = coordenadas.split(separador);
+
+
+          var datos_consult = doc.data();
+
+          var coordenadas = datos_consult.coordenadas
+          var separador = ",";
+
+          var textoseparado = coordenadas.split(separador);
           latitud = textoseparado[0];
           longitud = textoseparado[1];
+
+
+          var lugar = datos_consult.nombre;
+          var direccion = datos_consult.direccion;
+          var aforo = datos_consult.aforo;
+          var point = new google.maps.LatLng(datos_consult.coordenadas);
+
+
+
+
+          var infowincontent = document.createElement('div');
+          var strong = document.createElement('strong');
+          strong.textContent = lugar
+          infowincontent.appendChild(strong);
+          infowincontent.appendChild(document.createElement('br'));
+
+          var text = document.createElement('text');
+          text.textContent = direccion;
+          infowincontent.appendChild(text);
+          infowincontent.appendChild(document.createElement('br'));
+
+
+          var aforo_total = document.createElement('text');
+          aforo_total.textContent = "Aforo total: ";
+          infowincontent.appendChild(aforo_total);
+          var aforo_total_valor = document.createElement('input');
+          aforo_total_valor.size = "6";
+          aforo_total_valor.value = datos_consult.aforo_total;
+          infowincontent.appendChild(aforo_total_valor);
+
+
+
+
+          infowincontent.appendChild(document.createElement('br'));
+          var aforo_actual_texto = document.createElement('text');
+          aforo_actual_texto.textContent = "Aforo actual: ";
+
+          infowincontent.appendChild(aforo_actual_texto);
+
+          var aforo_actual_valor = document.createElement('input');
+          aforo_actual_valor.size = "6";
+          aforo_actual_valor.value = datos_consult.aforo_actual;
+          infowincontent.appendChild(aforo_actual_valor);
+
+          infowincontent.appendChild(document.createElement('br'));
+          var fecha_actu = document.createElement('text');
+
+          fecha_actu.textContent = "actualizado a fecha: " + datos_consult.actualizacion;
+          infowincontent.appendChild(fecha_actu);
+
+
+
+          infowincontent.appendChild(document.createElement('br'));
+          var actualizo = document.createElement('button');
+          actualizo.id = datos_consult.id;
+          actualizo.textContent = "Actualizar";
+          actualizo.value = datos_consult.nombre;
+          infowincontent.appendChild(actualizo);
+
+
+          var iconoalto = {
+            url: 'css/images/alto.png',
+            size: new google.maps.Size(32, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+          };
+
+
+          var iconomedio = {
+            url: 'css/images/medio.png',
+            size: new google.maps.Size(32, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+          };
+          var iconobajo = {
+            url: 'css/images/bajo.png',
+            size: new google.maps.Size(32, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+          }
+
+
+
+
+
+
+          var porcentaje = (datos_consult.aforo_actual / datos_consult.aforo_total) * 100;
+          if (porcentaje > 70) {
+            icon = iconoalto;
+          } else if (porcentaje < 70 && porcentaje > 50) {
+            icon = iconomedio;
+          } else {
+            icon = iconobajo;
+
+          }
+
+
+          var marker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(latitud, longitud),
+            icon: icon
+            // label: icon.label
+          });
+
+
+          //boton="'#"+datos_consult.nombre+"'";
+
+          actualizo.addEventListener('click', function () {
+            fecha_actu.textContent = fechayhora;
+            actualizar(datos_consult.coordenadas, aforo_total_valor.value, aforo_actual_valor.value);
+
+          });
+
+
+
+          marker.addListener('click', function () {
+            infoWindow.setContent(infowincontent);
+            infoWindow.open(map, marker);
+
+          });
+
+
+        });
+
+
+      });
+      ////añadir al mapa
+      google.maps.event.addListener(map, "click", (event) => {
+        alert("paso");
+
+        // Add a marker at the center of the map.
+        var marker2=addMarker(event.latLng, map);
+
     
+        var infoWindow2 = new google.maps.InfoWindow;
 
-        var lugar = datos_consult.nombre;
-        var direccion = datos_consult.direccion;
-        var aforo = datos_consult.aforo;
-       var point = new google.maps.LatLng(datos_consult.coordenadas);
-
-
-
-       
-        var infowincontent = document.createElement('div');
+  
+        var infowincontent2 = document.createElement('div');
         var strong = document.createElement('strong');
-        strong.textContent = lugar
-        infowincontent.appendChild(strong);
-        infowincontent.appendChild(document.createElement('br'));
+        strong.textContent = "Lugar: "
+        infowincontent2.appendChild(strong);
+        var lugar2 = document.createElement('input');
+        lugar2.size = "16";
+        infowincontent2.appendChild(lugar2);
+        infowincontent2.appendChild(document.createElement('br'));
 
         var text = document.createElement('text');
-        text.textContent = direccion;
-        infowincontent.appendChild(text);
-        infowincontent.appendChild(document.createElement('br'));
+        text.textContent = "Dirección: ";
+        infowincontent2.appendChild(text);
+        var direccion2 = document.createElement('input');
+        direccion2.size = "16";
+        infowincontent2.appendChild(direccion2);
+
+        infowincontent2.appendChild(document.createElement('br'));
 
 
         var aforo_total = document.createElement('text');
-        aforo_total.textContent= "Aforo total: ";
-        infowincontent.appendChild(aforo_total);
-        var aforo_total_valor=document.createElement('input');
-        aforo_total_valor.size="6";
-        aforo_total_valor.value=datos_consult.aforo_total;
-        infowincontent.appendChild(aforo_total_valor); 
-
-
-
-         
-        infowincontent.appendChild(document.createElement('br'));
-        var aforo_actual_texto = document.createElement('text');
-        aforo_actual_texto.textContent= "Aforo actual: " ;
+        aforo_total.textContent = "Aforo total: ";
+        infowincontent2.appendChild(aforo_total);
+        var aforo_total_valor2 = document.createElement('input');
+        aforo_total_valor2.size = "6";
         
-        infowincontent.appendChild(aforo_actual_texto);     
+        infowincontent2.appendChild(aforo_total_valor2);
 
-        var aforo_actual_valor=document.createElement('input');
-        aforo_actual_valor.size="6";
-        aforo_actual_valor.value=datos_consult.aforo_actual;
-        infowincontent.appendChild(aforo_actual_valor);     
 
-  infowincontent.appendChild(document.createElement('br'));
+
+
+        infowincontent2.appendChild(document.createElement('br'));
+        var aforo_actual_texto2 = document.createElement('text');
+        aforo_actual_texto2.textContent = "Aforo actual: ";
+
+        infowincontent2.appendChild(aforo_actual_texto2);
+
+        var aforo_actual_valor2 = document.createElement('input');
+        aforo_actual_valor2.size = "6";
+ 
+        infowincontent2.appendChild(aforo_actual_valor2);
+
+        infowincontent2.appendChild(document.createElement('br'));
         var fecha_actu = document.createElement('text');
+
+        fecha_actu.textContent = "actualizado a fecha: " + fechayhora;
+        infowincontent2.appendChild(fecha_actu);
+
+
+
+        infowincontent2.appendChild(document.createElement('br'));
+        var actualizo2 = document.createElement('button');
+        actualizo2.id = event.latLng;
+        actualizo2.textContent = "Actualizar";
+        actualizo2.value = lugar2;
+        infowincontent2.appendChild(actualizo2);
         
-        fecha_actu.textContent= "actualizado a fecha: "+datos_consult.actualizacion;
-        infowincontent.appendChild(fecha_actu);
+        marker2.addListener('click', function () {
+        infoWindow2.setContent(infowincontent2);
+            infoWindow2.open(map, marker2);
 
+          });
+      ///fin añadir mapa
 
-
-        infowincontent.appendChild(document.createElement('br'));
-        var actualizo=document.createElement('button');
-        actualizo.id=datos_consult.id;
-        actualizo.textContent= "Actualizar"         ;
-        actualizo.value= datos_consult.nombre;
-        infowincontent.appendChild(actualizo);
-
-
-        var iconoalto={url: 'css/images/alto.png',
-        size: new google.maps.Size(32, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
-  };
-
-
-        var iconomedio={ 
-           url: 'css/images/medio.png',
-        size: new google.maps.Size(32, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
-  };
-        var iconobajo={ 
-          url: 'css/images/bajo.png',
-        size: new google.maps.Size(32, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32)
-  }
-       
+      });
 
  
-      
+
+    // Adds a marker to the map.
+    function addMarker(location, map) {
+      // Add the marker at the clicked location, and add the next-available label
+      // from the array of alphabetical characters.
+     new google.maps.Marker({
+        position: location,
+        icon: icon,
+        map: map,
+      });
+    }
+
+    }
 
 
-        var porcentaje=(datos_consult.aforo_actual/datos_consult.aforo_total)*100;
-         if(porcentaje>70){
-           icon = iconoalto;
-         }else if(porcentaje<70&&porcentaje>50){
-          icon = iconomedio;
-         }else{
-          icon = iconobajo;
-
-         }
-     
-     
-        var marker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(latitud,longitud),
-          icon: icon
-         // label: icon.label
-        }); 
 
 
-        //boton="'#"+datos_consult.nombre+"'";
-
-        actualizo.addEventListener('click', function () {
-            fecha_actu.textContent=fechayhora;
-          actualizar(datos_consult.coordenadas,aforo_total_valor.value,aforo_actual_valor.value);
-        });
 
 
-    
-
-        marker.addListener('click', function () {
-          infoWindow.setContent(infowincontent);
-          infoWindow.open(map, marker);
-        
-        });
-
-
-        
-   
-    });
-
-
-  
-
-  });
-  }
-
-
- 
-  
     function doNothing() { }
   </script>
-   <script defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU&libraries=visualization&callback=initMap">
-</script>
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU&libraries=visualization&callback=initMap">
+    </script>
 </body>
 
 </html>
