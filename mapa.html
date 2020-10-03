@@ -200,7 +200,6 @@
           });
 
 
-          //boton="'#"+datos_consult.nombre+"'";
 
           actualizo.addEventListener('click', function () {
             fecha_actu.textContent = fechayhora;
@@ -221,12 +220,12 @@
 
 
       });
-      ////añadir al mapa
+      ////AÑADIR AL MAPA
       google.maps.event.addListener(map, "click", (event) => {
-        alert("paso");
+ 
 
         // Add a marker at the center of the map.
-        var marker2=addMarker(event.latLng, map);
+      
 
     
         var infoWindow2 = new google.maps.InfoWindow;
@@ -234,7 +233,7 @@
   
         var infowincontent2 = document.createElement('div');
         var strong = document.createElement('strong');
-        strong.textContent = "Lugar: "
+        strong.textContent = "Sitio: "
         infowincontent2.appendChild(strong);
         var lugar2 = document.createElement('input');
         lugar2.size = "16";
@@ -282,33 +281,37 @@
 
 
         infowincontent2.appendChild(document.createElement('br'));
-        var actualizo2 = document.createElement('button');
-        actualizo2.id = event.latLng;
-        actualizo2.textContent = "Actualizar";
-        actualizo2.value = lugar2;
-        infowincontent2.appendChild(actualizo2);
-        
+        var annadir = document.createElement('button');
+        annadir.id = event.latLng;
+        annadir.textContent = "Añadir";
+        annadir.value = lugar2;
+        infowincontent2.appendChild(annadir);
+        var marker2=new google.maps.Marker({
+        position: event.latLng,
+        icon: icon,
+        map: map,
+      });
         marker2.addListener('click', function () {
         infoWindow2.setContent(infowincontent2);
             infoWindow2.open(map, marker2);
 
           });
-      ///fin añadir mapa
+          var coordenadas2=event.latLng[0]+","+event.latLng[1];
+          alert(coordenadas2);
+          annadir.addEventListener('click', function () {
+            fecha_actu.textContent = fechayhora;
+            alta(coordenadas2, aforo_total_valor2.value, aforo_actual_valor2.value,lugar2.value,direccion2.value);
+
+          }); 
+
+
+      ///FIN AÑADIR MAPA
 
       });
 
  
 
-    // Adds a marker to the map.
-    function addMarker(location, map) {
-      // Add the marker at the clicked location, and add the next-available label
-      // from the array of alphabetical characters.
-     new google.maps.Marker({
-        position: location,
-        icon: icon,
-        map: map,
-      });
-    }
+  
 
     }
 

@@ -264,9 +264,37 @@ function actualizar(coordenadas,aforo_total,aforo_actual) {
 			aforo_total: aforo_total,
 			actualizacion: fechayhora
 		  }, { merge: true });
-	
+		  alertify.success("Dato actualizado");		
 }
 
+
+
+function alta(coordenadas2, aforo_total_valor2, aforo_actual_valor2,lugar2,direccion2) {
+
+
+
+	db.collection("aforo").add({
+		
+		aforo_actual: aforo_actual_valor2,
+		aforo_total: aforo_total_valor2,
+		coordenadas: coordenadas2,
+		nombre: lugar2,
+		direccion: direccion2,
+		actualizacion: fechayhora
+		
+	})
+		.then(function (docRef) {
+
+
+			alertify.success("Añadido");		
+
+		})
+		.catch(function (error) {
+
+			console.error("Error al añadir: ", error);
+		});
+
+}
 
 
 //CARGA DE DATOS DE JSON
