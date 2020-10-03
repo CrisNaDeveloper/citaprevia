@@ -276,7 +276,7 @@ coordenadas2=coordenadas2.toString();
 var coordenadas3=coordenadas2.replace('(','');
 var coordenadas4=coordenadas3.replace(')','');
 var coordenadas5=coordenadas4.replace(' ','');
-alert(coordenadas5);
+
 	db.collection("aforo").doc(coordenadas5).set({
 		
 		aforo_actual: aforo_actual_valor2,
@@ -302,7 +302,7 @@ alert(coordenadas5);
 
 
 //CARGA DE DATOS DE JSON
-/*
+
 const collectionKey = "aforo";
 if (data && (typeof data === "object")) {
 var coleccion = db.collection(collectionKey);
@@ -310,5 +310,5 @@ for(var elemento in data[0]){
 coleccion.doc(elemento).set(data[0][elemento]);
 
 }
-}*/
+}
 
