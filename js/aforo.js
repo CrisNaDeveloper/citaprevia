@@ -271,13 +271,17 @@ function actualizar(coordenadas,aforo_total,aforo_actual) {
 
 function alta(coordenadas2, aforo_total_valor2, aforo_actual_valor2,lugar2,direccion2) {
 
+coordenadas2=coordenadas2.toString();
 
-
-	db.collection("aforo").add({
+var coordenadas3=coordenadas2.replace('(','');
+var coordenadas4=coordenadas3.replace(')','');
+var coordenadas5=coordenadas4.replace(' ','');
+alert(coordenadas5);
+	db.collection("aforo").doc(coordenadas5).set({
 		
 		aforo_actual: aforo_actual_valor2,
 		aforo_total: aforo_total_valor2,
-		coordenadas: coordenadas2,
+		coordenadas: coordenadas5,
 		nombre: lugar2,
 		direccion: direccion2,
 		actualizacion: fechayhora

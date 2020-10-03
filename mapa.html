@@ -296,11 +296,11 @@
             infoWindow2.open(map, marker2);
 
           });
-          var coordenadas2=event.latLng[0]+","+event.latLng[1];
-          alert(coordenadas2);
+         
+         
           annadir.addEventListener('click', function () {
             fecha_actu.textContent = fechayhora;
-            alta(coordenadas2, aforo_total_valor2.value, aforo_actual_valor2.value,lugar2.value,direccion2.value);
+            alta(event.latLng, aforo_total_valor2.value, aforo_actual_valor2.value,lugar2.value,direccion2.value);
 
           }); 
 
