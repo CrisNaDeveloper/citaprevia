@@ -257,7 +257,7 @@ function consulta(coo) {
 
 
 function actualizar(coordenadas,aforo_total,aforo_actual) {
-
+alert(coordenadas,aforo_total,aforo_actual);
 	db.collection('aforo').doc(coordenadas).set({
 		
 			aforo_actual: aforo_actual,
@@ -302,7 +302,7 @@ var coordenadas5=coordenadas4.replace(' ','');
 
 
 //CARGA DE DATOS DE JSON
-
+/*
 const collectionKey = "aforo";
 if (data && (typeof data === "object")) {
 var coleccion = db.collection(collectionKey);
@@ -311,4 +311,4 @@ coleccion.doc(elemento).set(data[0][elemento]);
 
 }
 }
-
+*/
