@@ -69,12 +69,43 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
+
+
+
+
+
+
+
       db.collection("aforo").get().then((querySnapshot) => {
 
-
-
-
         var infoWindow = new google.maps.InfoWindow;
+
+       // Try HTML5 geolocation.
+       if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        infoWindow.setPosition(pos);
+        //infoWindow.setContent("Location found.");
+        infoWindow.open(map);
+        map.setCenter(pos);
+      },
+      () => {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }
+    );
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+//fin geolocation
+
+
+
 
 
         querySnapshot.forEach((doc) => {
@@ -204,7 +235,7 @@
           actualizo.addEventListener('click', function () {
             fecha_actu.textContent = fechayhora;
 
-            alert("antes"+datos_consult.coordenadas, aforo_total_valor.value, aforo_actual_valor.value);
+     
             actualizar(datos_consult.coordenadas, aforo_total_valor.value, aforo_actual_valor.value);
 
           });
@@ -320,6 +351,15 @@
 
 
 
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
 
 
     function doNothing() { }

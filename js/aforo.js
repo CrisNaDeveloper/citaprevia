@@ -257,7 +257,7 @@ function consulta(coo) {
 
 
 function actualizar(coordenadas,aforo_total,aforo_actual) {
-alert(coordenadas,aforo_total,aforo_actual);
+
 	db.collection('aforo').doc(coordenadas).set({
 		
 			aforo_actual: aforo_actual,
