@@ -20,4 +20,9 @@ function parametroURL(_par) {
 
 var url = parametroURL('url');
 
-alert(url);
+if(url="SEPE"){
+	
+}
+if(url="POLICIA"){
+	
+}
