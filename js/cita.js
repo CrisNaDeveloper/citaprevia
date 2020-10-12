@@ -27,7 +27,7 @@ if(url=="SEPE" && operacion=="alta"){
 if(url=="POLICIA"){
 	document.location="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
 }
-if(url=="SANITARIA"){
+if(url=="SANITARIA_MADRID"){
 	document.location="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
 }
 if(url=="INSS"){
