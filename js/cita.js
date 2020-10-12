@@ -20,9 +20,22 @@ function parametroURL(_par) {
 
 var url = parametroURL('url');
 
-if(url="SEPE"){
+if(url=="SEPE" && operacion=="alta"){
+	document.location="https://sede--sepe--gob--es.insuit.net/citaprevia/solicitudCitaPrevia.do";
 	
 }
-if(url="POLICIA"){
-	
+if(url=="POLICIA"){
+	document.location="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
+}
+if(url=="SANITARIA"){
+	document.location="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
+}
+if(url=="INSS"){
+document.location="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess;jsessionid=0001hrG4gb7nKUtqebZ47vGx50O:18jahh768?ARQ.SPM.TICKET=f51408fbd86c4483bafaac99e32f6595&SPM.CONTEXT=internet&ARQ.SPM.TMS_NAVEGACION=1602491938811";
+}
+if(url=="AYUNTAMIENTO_MADRID"){
+document.location="https://www-s.munimadrid.es/CitaNet/Concertar.do";
+}
+if(url=="AGENCIA_TRIBUTARIA"){
+document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
