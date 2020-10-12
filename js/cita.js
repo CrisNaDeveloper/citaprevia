@@ -31,7 +31,7 @@ if(url=="SANITARIA_MADRID"){
 	document.location="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
 }
 if(url=="INSS"){
-document.location="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess;jsessionid=0001hrG4gb7nKUtqebZ47vGx50O:18jahh768?ARQ.SPM.TICKET=f51408fbd86c4483bafaac99e32f6595&SPM.CONTEXT=internet&ARQ.SPM.TMS_NAVEGACION=1602491938811";
+document.location="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I";
 }
 if(url=="AYUNTAMIENTO_MADRID"){
 document.location="https://www-s.munimadrid.es/CitaNet/Concertar.do";
