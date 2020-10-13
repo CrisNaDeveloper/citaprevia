@@ -20,8 +20,8 @@ function parametroURL(_par) {
 
 var url = parametroURL('url');
 
-if(url=="SEPE" && operacion=="alta"){
-	document.location="https://sede--sepe--gob--es.insuit.net/citaprevia/solicitudCitaPrevia.do";
+if(url=="SEPE"){
+	document.location="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
 	
 }
 if(url=="POLICIA"){
@@ -39,3 +39,11 @@ document.location="https://www-s.munimadrid.es/CitaNet/Concertar.do";
 if(url=="AGENCIA_TRIBUTARIA"){
 document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
+if(url=="JUSTICIA"){
+	document.location="https://citaprevia.mjusticia.gob.es/";
+	}
+if(url=="DGT"){
+		document.location="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
+}
+
+	
