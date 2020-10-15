@@ -32,7 +32,7 @@
   <script src="lib/alertify.min.js"></script>
 
 
-  <script type="text/javascript" src="data.json"></script>
+  <!--script type="text/javascript" src="data.json"></script-->
   <script src="js/cita.js"></script>
 
   <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script-->
@@ -43,27 +43,55 @@
 </head>
 
 <body>
-<style>
+  <script>
 
-.footer{
-  display:none;
-}
-.header{
-  display:none;
-}
-.cabecera{
-  display:none;
-}
-.menu{
-  display:none;
-}
-.loginbox{
-  display:none;
-}
+    $('#foo').ready(function () {
 
+      recarga();
+           $('#loadingMessage').css('display', 'none');
+    });
+    $('#foo').load(function () {
+
+      document.getElementById("cabecera").style.display="none";
+	$('#cabecera').css('display', 'none');
+  $('#foo').contents().find("#cabecera").remove();
+			  $('#foo').contents().find("#cabecera").remove();
+          });  
+  
+      </script>
 
 
-</style>
+<iframe src="www.example.com" id="foo"  height="600" width="900"  >
+
+  <style>
+
+    .footer{
+      display:none;
+    }
+    .header{
+      display:none;
+    }
+    .cabecera{
+      display:none !important;
+    }
+    .menu{
+      display:none;
+    }
+    .loginbox{
+      display:none;
+    }
+    .barrainfo{
+      display:none;
+    }
+    
+    
+    
+    </style>
+
+
+</iframe>
+<div id="loadingMessage">Cargando...</div>
+
 </body>
 
 </html>

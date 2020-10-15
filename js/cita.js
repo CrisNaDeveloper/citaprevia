@@ -20,30 +20,34 @@ function parametroURL(_par) {
 
 var url = parametroURL('url');
 
+function recarga(){
+
 if(url=="SEPE"){
-	document.location="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
+	foo.src="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
 	
 }
 if(url=="POLICIA"){
-	document.location="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
+	foo.src="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
 }
 if(url=="SANITARIA_MADRID"){
-	document.location="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
+	$('#foo').attr('src', "https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx");
+	//$('#foo').reload();
+
+	//foo.src="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
 }
 if(url=="INSS"){
-document.location="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I";
+	foo.src="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I";
 }
 if(url=="AYUNTAMIENTO_MADRID"){
-document.location="https://www-s.munimadrid.es/CitaNet/Concertar.do";
+	foo.src="https://www-s.munimadrid.es/CitaNet/Concertar.do";
 }
 if(url=="AGENCIA_TRIBUTARIA"){
-document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
+	foo.src="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
 if(url=="JUSTICIA"){
-	document.location="https://citaprevia.mjusticia.gob.es/";
+	foo.src="https://citaprevia.mjusticia.gob.es/";
 	}
 if(url=="DGT"){
-		document.location="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
+	foo.src="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
 }
-
-	
+}
