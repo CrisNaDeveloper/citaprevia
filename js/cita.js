@@ -23,7 +23,7 @@ var url = parametroURL('url');
 function recarga(){
 
 if(url=="SEPE"){
-	foo.src="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
+	document.location="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
 	
 }
 if(url=="POLICIA"){
