@@ -50,18 +50,18 @@ if(url=="DGT"){
 }
 
 if(url=="OFICINA_REGISTRO"){
-	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
+	document.location="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
 }
 if(url=="EXTRANJERIA"){
-	foo.src="https://sede.administracionespublicas.gob.es/icpplus/index.html";
+	document.location="https://sede.administracionespublicas.gob.es/icpplus/index.html";
 	}
 if(url=="REGISTRO_CIVIL"){
-	foo.src="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
+	document.location="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
 }
-if(url=="PENITENCIARIOS"){
-	foo.src="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
+if(url=="CENTROS_PENITENCIARIOS"){
+	document.location="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
 }
 if(url=="VACUNACION_INTERNACIONAL"){
-	foo.src="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
+	document.location="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
 }
 }
