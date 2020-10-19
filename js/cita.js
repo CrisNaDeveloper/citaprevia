@@ -37,7 +37,7 @@ if(url=="INSS"){
 	foo.src="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I";
 }
 if(url=="AYUNTAMIENTO_MADRID"){
-	foo.src="https://www-s.munimadrid.es/CitaNet/Principal.do";
+	foo.src="https://www-s.munimadrid.es/CitaNet/index.jsp";
 }
 if(url=="AGENCIA_TRIBUTARIA"){
 	foo.src="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
