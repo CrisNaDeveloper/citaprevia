@@ -30,8 +30,6 @@ if(url=="POLICIA"){
 	foo.src="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
 }
 if(url=="SANITARIA_MADRID"){
-	//$('#foo').attr('src', "https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx");
-	//$('#foo').reload();
 
 	foo.src="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
 }
