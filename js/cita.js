@@ -64,4 +64,7 @@ if(url=="CENTROS_PENITENCIARIOS"){
 if(url=="VACUNACION_INTERNACIONAL"){
 	document.location="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
 }
+if(url=="MUFACE"){
+	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE";
+}
 }
