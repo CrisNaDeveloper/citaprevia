@@ -43,7 +43,7 @@ if(url=="AGENCIA_TRIBUTARIA"){
 	document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
 if(url=="JUSTICIA"){
-	foo.src="https://citaprevia.mjusticia.gob.es";
+	document.location="https://citaprevia.mjusticia.gob.es";
 	}
 if(url=="DGT"){
 	foo.src="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
