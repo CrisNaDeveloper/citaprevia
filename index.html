@@ -43,55 +43,72 @@
 </head>
 
 <body>
+  <div class="panorama" style="display:block;"> 
+  <iframe src="" id="foo"  >
+<style>
+    .footer iframe{
+      display:none;
+    }
+    .header iframe{
+      display:none;
+    }
+    .cabecera iframe{
+      display:none !important;
+    }
+    .menu iframe{
+      display:none;
+    }
+    .loginbox iframe{
+      display:none;
+    }
+    .barrainfo iframe{
+      display:none;
+    }
+</style>
+  </iframe>
+
+
+ 
+
+   
+</script>
+  </iframe>
+  </div>
   <script>
+   recarga();
 
-    $('#foo').ready(function () {
-
-      recarga();
-           $('#loadingMessage').css('display', 'none');
-    });
     $('#foo').load(function () {
 
-      document.getElementById("cabecera").style.display="none";
-	$('#cabecera').css('display', 'none');
-  $('#foo').contents().find("#cabecera").remove();
-			  $('#foo').contents().find("#cabecera").remove();
-          });  
+        $('#loadingMessage').css('display', 'none');
+      $('#loadingMessage').hide();
+      $('#cabecera').css('display', 'none');
+
+             });  
   
       </script>
 
 
-<iframe src="www.example.com" id="foo"  height="600" width="900"  >
-
-  <style>
-
-    .footer{
-      display:none;
-    }
-    .header{
-      display:none;
-    }
-    .cabecera{
-      display:none !important;
-    }
-    .menu{
-      display:none;
-    }
-    .loginbox{
-      display:none;
-    }
-    .barrainfo{
-      display:none;
-    }
-    
-    
-    
-    </style>
 
 
-</iframe>
+
+
+
 <div id="loadingMessage">Cargando...</div>
+<style>
+.panorama iframe {
+   position: absolute;
+   width: 100vw !important;
+   height: 100vh !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   overflow:hidden;
+}
 
+  
+  
+  
+  </style>
+  
 </body>
 
 </html>

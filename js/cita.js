@@ -30,10 +30,10 @@ if(url=="POLICIA"){
 	foo.src="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action";
 }
 if(url=="SANITARIA_MADRID"){
-	$('#foo').attr('src', "https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx");
+	//$('#foo').attr('src', "https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx");
 	//$('#foo').reload();
 
-	//foo.src="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
+	foo.src="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx";
 }
 if(url=="INSS"){
 	foo.src="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I";
