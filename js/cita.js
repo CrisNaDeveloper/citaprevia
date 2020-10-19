@@ -48,4 +48,20 @@ if(url=="JUSTICIA"){
 if(url=="DGT"){
 	foo.src="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
 }
+
+if(url=="OFICINA_REGISTRO"){
+	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
+}
+if(url=="EXTRANJERIA"){
+	foo.src="https://sede.administracionespublicas.gob.es/icpplus/index.html";
+	}
+if(url=="REGISTRO_CIVIL"){
+	foo.src="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
+}
+if(url=="PENITENCIARIOS"){
+	foo.src="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
+}
+if(url=="VACUNACION_INTERNACIONAL"){
+	foo.src="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
+}
 }
