@@ -65,6 +65,6 @@ if(url=="VACUNACION_INTERNACIONAL"){
 	foo.src="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
 }
 if(url=="MUFACE"){
-	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE";
+	document.location="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE";
 }
 }
