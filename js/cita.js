@@ -40,23 +40,23 @@ if(url=="AYUNTAMIENTO_MADRID"){
 	foo.src="https://www-s.munimadrid.es/CitaNet/index.jsp";
 }
 if(url=="AGENCIA_TRIBUTARIA"){
-	foo.src="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
+	document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
 if(url=="JUSTICIA"){
-	foo.src="https://citaprevia.mjusticia.gob.es";
+	document.location="https://citaprevia.mjusticia.gob.es";
 	}
 if(url=="DGT"){
 	foo.src="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
 }
 
 if(url=="OFICINA_REGISTRO"){
-	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
+	document.location="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
 }
 if(url=="EXTRANJERIA"){
-	foo.src="https://sede.administracionespublicas.gob.es/icpplus/index.html";
+	document.location="https://sede.administracionespublicas.gob.es/icpplus/index.html";
 	}
 if(url=="REGISTRO_CIVIL"){
-	foo.src="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
+	document.location="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
 }
 if(url=="CENTROS_PENITENCIARIOS"){
 	foo.src="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
