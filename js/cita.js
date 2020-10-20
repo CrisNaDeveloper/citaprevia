@@ -23,7 +23,7 @@ var url = parametroURL('url');
 function recarga(){
 
 if(url=="SEPE"){
-	document.location="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
+	foo.src="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do";
 	
 }
 if(url=="POLICIA"){
@@ -40,29 +40,29 @@ if(url=="AYUNTAMIENTO_MADRID"){
 	foo.src="https://www-s.munimadrid.es/CitaNet/index.jsp";
 }
 if(url=="AGENCIA_TRIBUTARIA"){
-	document.location="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
+	foo.src="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion";
 }
 if(url=="JUSTICIA"){
-	document.location="https://citaprevia.mjusticia.gob.es";
+	foo.src="https://citaprevia.mjusticia.gob.es";
 	}
 if(url=="DGT"){
 	foo.src="https://sedeapl.dgt.gob.es:7443/WEB_NCIT_CONSULTA/solicitarCita.faces";
 }
 
 if(url=="OFICINA_REGISTRO"){
-	document.location="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
+	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR";
 }
 if(url=="EXTRANJERIA"){
-	document.location="https://sede.administracionespublicas.gob.es/icpplus/index.html";
+	foo.src="https://sede.administracionespublicas.gob.es/icpplus/index.html";
 	}
 if(url=="REGISTRO_CIVIL"){
-	document.location="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
+	foo.src="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC";
 }
 if(url=="CENTROS_PENITENCIARIOS"){
-	document.location="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
+	foo.src="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/";
 }
 if(url=="VACUNACION_INTERNACIONAL"){
-	document.location="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
+	foo.src="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do";
 }
 if(url=="MUFACE"){
 	foo.src="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE";
