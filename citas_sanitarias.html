@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
+  <!-- Comment out (or don't include) services that you don't want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__es.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+
+  <link rel="stylesheet" href="themes/alertify.core.css" />
+  <link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+
+
+  <script src="lib/alertify.min.js"></script>
+
+
+  <!--script type="text/javascript" src="data.json"></script-->
+  <script src="js/cita.js"></script>
+
+  <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script-->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <title>Cita Previa Única</title>
+<script>
+  $(document).ready(function(){
+
+  $("body").on("focus","input",function(event){
+    $(this).attr('autocomplete', 'on')
+  });
+
+});
+
+  </script>
+</script>
+</head>
+<body>
+
+<div data-role="page" id
+
+
+="pageone">
+  <div data-role="main" class="ui-content">
+      <form class="ui-filterable">
+      <input id="myFilter" data-type="search">
+    </form>
+    <ul data-role="listview" data-filter="true" data-input="#myFilter"  data-inset="true">
+ <li><a target="_parent" href="https://www.saludinforma.es/portalsi/web/salud/tramites-gestiones/cita-previa"><img width="60px" width="60px" src="css/images/logo_aragon.jpg"><h6>Cita Sanitaria en Aragon </h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li><a target="_parent" href="https://www3.gobiernodecanarias.org/citasalud/"><img width="60px" width="60px" src="css/images/logo_canarias.jpg"><h6>Cita Sanitaria Canarias </h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li><a target="_parent" href="https://citaweb.saludcastillayleon.es/CitaPreviaWeb/#/start"><img width="60px" width="60px" src="css/images/logo_castilla_leon.png"><h6>Cita Sanitaria en Castilla y León </h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li><a target="_parent" href="https://sescam.jccm.es/csalud/citas/inicioCita.jsf?main=/ciudadanos/citaPrevia/citaPreLogin.jsp&cabecera=/common/cabecera_cita.html"><img width="60px" width="60px" src="css/images/logo_castilla_mancha.png"><h6>Cita Sanitaria Castilla La Mancha</h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li><a target="_parent" href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/com-accedeix/programacio-visites/"><img width="60px" width="60px" src="css/images/logo_cataluña.png"><h6>Cita Sanitaria en Cataluña</h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li><a target="_parent" href="https://citaweb-ingesa.msssi.es/IngesaCitaWeb/citaprevia/inicio"><img width="60px" width="60px" src="css/images/logo_ceuta_melilla.png"><h6>Cita Sanitaria en Ceuta y Melilla</h6>
+        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+      </a>
+      </li>
+      <li>
+        <a target="_parent" href="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx"><img width="60px" src="css/images/logo_salud.png"><h6>Cita Sanitaria en Madrid</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     
+     <li>
+        <a target="_parent" href="http://www.san.gva.es/cita_previa/citaprevia_val.html"><img width="60px" src="css/images/logo_valencia.png"><h6>Cita Sanitaria en Valencia</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     
+
+     <li>
+        <a target="_parent" href="https://saludextremadura.ses.es/csonline/login/login.xhtml?accion=backToCitaPrevia"><img width="60px" src="css/images/logo_extremadura.png"><h6>Cita Sanitaria en Extremadura</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     
+     <li>
+        <a target="_parent" href="https://www.sergas.gal/"><img width="60px" src="css/images/logo_galicia.jpg"><h6>Cita Sanitaria en Galicia</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     <li>
+        <a target="_parent" href="https://porpac.ibsalut.es/services/Appointment.action"><img width="60px" src="css/images/logo_baleares.png"><h6>Cita Sanitaria en Baleares</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     <li>
+        <a target="_parent" href="https://cita-previa.riojasalud.es/"><img width="60px" src="css/images/logo_larioja.png"><h6>Cita Sanitaria en La Rioja</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     <li>
+        <a target="_parent" href="https://www.osanet.euskadi.net/o22PlamWar/iniciologin.do?idioma=cas"><img width="60px" src="css/images/logo_paisvaco.jpg"><h6>Cita Sanitaria en el País Vasco</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     
+     <li>
+        <a target="_parent" href="https://sede.carm.es/sms/citainternet/login.xhtmls"><img width="60px" src="css/images/logo_murcia.png"><h6>Cita Sanitaria en Murcia</h6>
+     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>   </a></li>
+     
+   
+     https://sede.carm.es/sms/citainternet/login.xhtml
+     
+    </ul>
+  </div>
+</div> 
+<div class="panorama" style="display:block;"> 
+  <iframe src="" id="foo" target="_parent" >
+<style>
+    .footer iframe{
+      display:none;
+    }
+    .header iframe{
+      display:none;
+    }
+    .cabecera iframe{
+      display:none !important;
+    }
+    .menu iframe{
+      display:none;
+    }
+    .loginbox iframe{
+      display:none;
+    }
+    .barrainfo iframe{
+      display:none;
+    }
+</style>
+  </iframe>
+</body>
+</html>
