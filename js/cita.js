@@ -68,3 +68,10 @@ if(url=="MUFACE"){
 	document.location="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE";
 }
 }
+
+$(document).ready(function() {
+	$("#volver").click(function() {
+	 alert("paso");
+	});
+	}
+	
