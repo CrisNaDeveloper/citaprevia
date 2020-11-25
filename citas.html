@@ -1,155 +1,211 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
+    <!-- Comment out (or don't include) services that you don't want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__es.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
 
 
-  <!-- Firebase App is always required and must be first -->
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
-  <!-- Add additional services that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>
-  <!-- Comment out (or don't include) services that you don't want to use -->
-  <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-storage.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
-  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth__es.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
 
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="themes/alertify.core.css" />
+    <link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
 
 
-  <link rel="stylesheet" href="themes/alertify.core.css" />
-  <link rel="stylesheet" href="themes/alertify.default.css" id="toggleCSS" />
+    <script src="lib/alertify.min.js"></script>
 
 
-  <script src="lib/alertify.min.js"></script>
+    <!--script type="text/javascript" src="data.json"></script-->
+    <script src="js/cita.js"></script>
 
+    <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script-->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <title>Cita Previa Única</title>
+    <script>
+        $(document).ready(function() {
 
-  <!--script type="text/javascript" src="data.json"></script-->
-  <script src="js/cita.js"></script>
+            $("body").on("focus", "input", function(event) {
+                $(this).attr('autocomplete', 'on')
+            });
 
-  <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkVvmzUIeVr_u2s1URIwq8P_GZ12QwoU"></script-->
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/jquery.mobile-1.4.5.min.js"></script>
-  <title>Cita Previa Única</title>
-<script>
-  $(document).ready(function(){
-
-  $("body").on("focus","input",function(event){
-    $(this).attr('autocomplete', 'on')
-  });
-
-});
-
-  </script>
-</script>
+        });
+    </script>
+    </script>
 </head>
+
 <body>
 
-<div data-role="page" id="pageone">
-  <div data-role="main" class="ui-content">
-      <form class="ui-filterable">
-      <input id="myFilter" data-type="search">
-    </form>
-    <ul data-role="listview" data-filter="true" data-input="#myFilter"  data-inset="true">
- <li><a target="_parent" href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion"><img width="60px" width="60px" src="css/images/logo_agencia.png"><h6>Agencia Tributaria </h6>
-        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar declaración de la renta, pago de impuestos,etc..</p>
-      </a>
-      </li>
-        <li>
-          <a target="_parent" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I"><img width="60px" src="css/images/logo_inss.jpg"><h6>Instituto Nacional de la Seguridad Social </h6>
-        <p class="content " style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar pensiones y prestaciones </p>   </a></li>
-        <li>
-          <a target="_parent" href="https://citaprevia.mjusticia.gob.es"><img width="60px" src="css/images/logo_justicia.jpg"><h6>Ministerio de Justicia</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para Certificado de antecedentes penales, certificados de últimas voluntades, registro general, etc..</p>   </a></li>
-        <li>
-          <a target="_parent" href="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action"><img  width="60px" src="css/images/logo_cnp.png"><h6>Policía Nacional</h6>
-      
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar y renovar DNI, DNIe ,NIE, pasaporte, etc..</p>   </a></li>
-          <li>
-            <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE"><img width="60px" src="css/images/logo_muface.png"><h6>Muface </h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitarias, médicos, etc</p>   </a></li>
-  
-        <li>
-          <a target="_parent" href="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx"><img width="60px" src="css/images/logo_salud.png"><h6>Sanidad Madrid</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra</p>   </a></li>
-      <li>
-        <a target="_parent" href="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do"><img width="60px" src="css/images/logo_sepe.png"><h6>Servicio de empleo</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar empleo, prestaciones por desempleo, etc.. </p>   </a></li>
-       <li>
-        <a target="_parent" href="https://sedeclave.dgt.gob.es/WEB_NCIT_CONSULTA/solicitarCita.faces"><img width="60px" src="css/images/logo_dgt.jpg"><h6>Dirección General de Tráfico</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el carnet de conducir, renovación, pago de tasas e impuestos, etc.. </p>   </a></li>
+    <div data-role="page" id="pageone">
+        <div data-role="main" class="ui-content">
+            <form class="ui-filterable">
+                <input id="myFilter" data-type="search">
+            </form>
+            <ul data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true">
+                <li>
+                    <a target="_parent" href="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do"><img width="60px" src="css/images/logo_sepe.png">
+                        <h6>Cita previa Servicio de empleo</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar empleo, prestaciones por desempleo, etc.. </p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion"><img width="60px" width="60px" src="css/images/logo_agencia.png">
+                        <h6>Cita previa Agencia Tributaria </h6>
+                        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar declaración de la renta, pago de impuestos,etc..</p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I"><img width="60px" src="css/images/logo_inss.jpg">
+                        <h6>Cita previa Instituto Nacional de la Seguridad Social </h6>
+                        <p class="content " style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar pensiones y prestaciones </p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://citaprevia.mjusticia.gob.es"><img width="60px" src="css/images/logo_justicia.jpg">
+                        <h6>Cita previa Ministerio de Justicia</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para Certificado de antecedentes penales, certificados de últimas voluntades, registro general, etc..</p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action"><img width="60px" src="css/images/logo_cnp.png">
+                        <h6>Cita previa Policía Nacional</h6>
 
-       
-        <li>
-          <a target="_parent" href="https://www-s.munimadrid.es/CitaNet/index.jsp"><img width="60px" src="css/images/logo_munimadrid.png"><h6>Ayuntamiento de Madrid</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Pago de impuestos, tasas , información, etc..</p>   </a></li>
-      
-       <li>
-        <a target="_parent" href="citas_sanitarias.html"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Cita Sanitaria (Todas las Provincias)</h6>
-     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra </p>   </a></li>
-
-     
-        <li>
-          <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplus/index.html"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Extranjería (Todas las Provincias)</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicita permiso de Asilo, visado, TIE, certificado de residente, NIE, Toma de huellas, tramites de comisarias, etc..</p>   </a></li>
-      
-        <li>
-          <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Oficinas de registro (Todas las provincias)</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para obtener Certificados Digitales, acceso por Cl@ve, Registro de documentación </p>   </a></li>
-        <li>
-          <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Registro Civil (Todas las Provincias)</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar Inscripción en el registro civil, matrimonio civil, solicitar certificados, cambio de nombre, inscripción de matrimonios, inscripción de nacimiento, nacionalidad, solicitud libro de familia, etc...</p>   </a></li>
-        <li>
-          <a target="_parent" href="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Centros Penitenciarios (Todas las Provincias)</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Visitas a centros penitenciarios</p>   </a></li>
-     
-        <li>
-          <a target="_parent" href="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do"><img width="60px" src="css/images/logo_gob_esp.png"><h6>Vacunación Internacional (Todas las Provincias)</h6>
-       <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Cita para vacunarte si viajas al extranjero</p>   </a></li>
-    </ul>
-  </div>
-</div> 
-
-  <style>
-    .footer iframe{
-      display:none;
-    }
-    .EAT_pie iframe{
-      display:none;
-    }
-    A
-    .header iframe{
-      display:none;
-    }
-    .cabecera iframe{
-      display:none !important;
-    }
-    .menu iframe{
-      display:none;
-    }
-    .loginbox iframe{
-      display:none;
-    }
-    .barrainfo iframe{
-      display:none;
-    }
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar y renovar DNI, DNIe ,NIE, pasaporte, etc..</p>
+                    </a>
+                </li>
 
 
-</style>
+                <li>
+                    <a target="_parent" href="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx"><img width="60px" src="css/images/logo_salud.png">
+                        <h6>Cita previa Sanidad Madrid</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra</p>
+                    </a>
+                </li>
 
-  <iframe  id="panorama" name="panorama" >
+                <li>
+                    <a target="_parent" href="https://sedeclave.dgt.gob.es/WEB_NCIT_CONSULTA/solicitarCita.faces"><img width="60px" src="css/images/logo_dgt.jpg">
+                        <h6>Cita previa Dirección General de Tráfico</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el carnet de conducir, renovación, pago de tasas e impuestos, etc.. </p>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a target="_parent" href="https://www-s.munimadrid.es/CitaNet/index.jsp"><img width="60px" src="css/images/logo_munimadrid.png">
+                        <h6>Cita previa Ayuntamiento de Madrid</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Pago de impuestos, tasas , información, etc..</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_parent" href="citas_sanitarias.html"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Sanitaria (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_parent" href="https://www.sanitas.es/misanitas/online/clientes/area-publica/#/"><img width="60px" src="css/images/logo-sanitas.jpg">
+                        <h6>Cita previa Sanitaria Sanitas</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE"><img width="60px" src="css/images/logo_muface.png">
+                        <h6>Cita previa Muface </h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitarias, médicos, etc</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplus/index.html"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Extranjería (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicita permiso de Asilo, visado, TIE, certificado de residente, NIE, Toma de huellas, tramites de comisarias, etc..</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Oficinas de registro (Todas las provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para obtener Certificados Digitales, acceso por Cl@ve, Registro de documentación </p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Registro Civil (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar Inscripción en el registro civil, matrimonio civil, solicitar certificados, cambio de nombre, inscripción de matrimonios, inscripción de nacimiento, nacionalidad, solicitud libro de familia, etc...</p>
+                    </a>
+                </li>
+                <li>
+                    <a target="_parent" href="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Centros Penitenciarios (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Visitas a centros penitenciarios</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_parent" href="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Vacunación Internacional (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Cita para vacunarte si viajas al extranjero</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .footer iframe {
+            display: none;
+        }
+        
+        .EAT_pie iframe {
+            display: none;
+        }
+        
+        A .header iframe {
+            display: none;
+        }
+        
+        .cabecera iframe {
+            display: none !important;
+        }
+        
+        .menu iframe {
+            display: none;
+        }
+        
+        .loginbox iframe {
+            display: none;
+        }
+        
+        .barrainfo iframe {
+            display: none;
+        }
+    </style>
+
+    <iframe id="panorama" name="panorama">
 
   </iframe>
 </body>
+
 </html>
