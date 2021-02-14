@@ -212,7 +212,6 @@
 
                     var identi = $(this).attr("id");
                     identi = identi.substring(identi.indexOf("_") + 1);
-
                     var datos = {
                         id: listid,
                         nombre: $("#" + identi).attr('visible')
@@ -229,13 +228,14 @@
                     if (posLista > -1) {
 
                         // si está, lo quitamos
-                        $("#" + identi).attr('visible', "hide");
+                        alertify.error("eliminado de favoritos");
+                        $("#" + identi).hide();
                         favoritos.splice(posLista, 1);
 
                     } else {
                         // si no está, lo añadimos
-
-                        $("#" + identi).attr('visible', "show");
+                        alertify.success("añadido favoritos");
+                        $("#" + identi).show();
                         favoritos.push(datos);
                     }
 

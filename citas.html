@@ -65,7 +65,7 @@
 
 
 
-            <ul id="theList" data-role="listview" data-filter="true" data-input="#myFilter" data-split-icon="star" data-theme="a" data-split-theme="a" data-inset="true">
+            <ul id="theList" data-role="listview" data-filter="true" data-input="#myFilter" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
 
                 <li id="1">
 
@@ -244,6 +244,16 @@
                 $(this).attr('autocomplete', 'on')
             });
 
+            var favoritos = localStorage.getItem("favoritos") || "[]";
+            favoritos = JSON.parse(favoritos);
+
+            for (var j = 0; j < favoritos.length; j++) {
+                //get filter text
+                var posGeneral = favoritos[j].id;
+
+                $("#" + posGeneral).show();
+                $("#" + "agregar-favoritos_" + posGeneral).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a");
+            }
 
 
             $("a[id^='agregar-favoritos']").click(
@@ -275,13 +285,17 @@
 
                         // si está, lo quitamos
                         alertify.error("eliminado de favoritos");
-                        $("#" + identi).attr('visible', "hide");
+                        $("#" + identi).hide();
                         favoritos.splice(posLista, 1);
 
                     } else {
                         // si no está, lo añadimos
+                        $("#" + "agregar-favoritos_" + identi).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a");
                         alertify.success("añadido favoritos");
-                        $("#" + identi).attr('visible', "show");
+
+                        // $("#" + identi).show();
+
+
                         favoritos.push(datos);
                     }
 
@@ -307,11 +321,7 @@
                     var posGeneral = favoritos[j].id;
 
                     $("#" + posGeneral).show();
-                    $("#theList").attr("data-icon", "star-black");
-                    $("#theList").attr("data-split-icon", "b");
-                    $("#theList").attr("data-theme", "b");
-
-
+                    $("#" + "agregar-favoritos_" + posGeneral).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a");
                 }
             }
 
