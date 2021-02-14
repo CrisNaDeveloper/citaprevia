@@ -272,14 +272,15 @@
                         return e.id == datos.id;
                     });
                     if (posLista > -1) {
-                        alert("lo quitamos");
+
                         // si está, lo quitamos
+                        alertify.error("eliminado de favoritos");
                         $("#" + identi).attr('visible', "hide");
                         favoritos.splice(posLista, 1);
 
                     } else {
                         // si no está, lo añadimos
-                        alert("lo ponemos");
+                        alertify.success("añadido favoritos");
                         $("#" + identi).attr('visible', "show");
                         favoritos.push(datos);
                     }
