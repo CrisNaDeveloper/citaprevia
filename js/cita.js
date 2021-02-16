@@ -1,103 +1,128 @@
-$(document).ready(function() {
+    $(document).ready(function() {
 
+            $("body ").on("focus", "input", function(event) {
+                $(this).attr('autocomplete', 'on')
+            });
 
-
-    $("body").on("focus", "input", function(event) {
-        $(this).attr('autocomplete', 'on')
-    });
-
-
-    // leemos los favoritos del localStorage
-    var favoritos = localStorage.getItem("favoritos") || "[]";
-    favoritos = JSON.parse(favoritos);
-
-    // para cada producto en favoritos
-    for (var x = 0; x < favoritos.length; x++) {
-
-        // con un enlace al producto
-
-        $("#" + x).attr("visible", "show");
-
-    }
-
-    $("a[id^='agregar-favoritos']").click(
-        function(e) {
-
-            // hacemos que no se ejecute el enlace
-            e.preventDefault();
-
-            // leemos los datos clave del producto y los guardamos en un objeto
-
-            var listid = $(this).attr("name");
-
-            var identi = $(this).attr("id");
-            identi = identi.substring(identi.indexOf("_") + 1);
-            var datos = {
-                id: listid,
-                nombre: $("#" + identi).attr('visible')
-            };
-
-            // leemos los favoritos del localStorage
-            var favoritos = localStorage.getItem("favoritos") || "[]";
+            var favoritos = localStorage.getItem("favoritos") || "[] ";
             favoritos = JSON.parse(favoritos);
 
-            // buscamos el producto en la lista de favoritos
-            var posLista = favoritos.findIndex(function(e) {
-                return e.id == datos.id;
-            });
-            if (posLista > -1) {
+            for (var j = 0; j < favoritos.length; j++) {
+                //get filter text
+                var posGeneral = favoritos[j].id;
+                var nomb = favoritos[j].nombre;
 
-                // si está, lo quitamos
-                favoritos.splice(posLista, 1);
-                $("#" + identi).attr('visible', "hide");
-            } else {
-                // si no está, lo añadimos
-
-                $("#" + identi).attr('visible', "show");
-                favoritos.push(datos);
+                $("#" + posGeneral).show();
+                $("#" + "agregar-favoritos_" + posGeneral).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a");
             }
 
-            // guardamos la lista de favoritos 
-            localStorage.setItem("favoritos", JSON.stringify(favoritos));
 
-        }
+            $("a[id^='agregar-favoritos' ] ").click(
+                function(e) {
 
+                    // hacemos que no se ejecute el enlace
+                    e.preventDefault();
 
-    );
-
-
-});
-
-$('#favorito').click(function(e) {
-    var filtvalue = "show";
+                    // leemos los datos clave del producto y los guardamos en un objeto
 
 
-    $("#theList").find("li").each(function(idx) {
-        //get filter text
-        var filtText = $(this).attr("visible");
+                    var identi = $(this).attr("id");
+                    identi = identi.substring(identi.indexOf("_") + 1);
 
-        if (filtText != undefined && filtText == "show") {
+                    var datos = {
+                        id: identi,
+                        nombre: $("#" + identi).attr('visible')
+                    };
 
-            $(this).show();
-        } else {
-            $(this).hide();
-        }
-    });
+                    // leemos los favoritos del localStorage
+                    var favoritos = localStorage.getItem("favoritos") || "[] ";
+                    favoritos = JSON.parse(favoritos);
 
-});
-$('#todos').click(function(e) {
-    var filtvalue = "hide";
+                    // buscamos el producto en la lista de favoritos
+                    var posLista = favoritos.findIndex(function(e) {
+
+                        return e.id == identi;
+                    });
+                    if (posLista > -1) {
+
+                        // si está, lo quitamos
+                        alertify.error("eliminado de favoritos ");
+                        $("#fila_" + identi).hide();
+
+                        favoritos.splice(posLista, 1);
+
+                    } else {
+                        // si no está, lo añadimos
+                        $("#agregar-favoritos_" + identi).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a");
+                        alertify.success("añadido favoritos");
+
+                        // $("# " + identi).show();
 
 
-    $("#theList").find("li").each(function(idx) {
-        //get filter text
-        var filtText = $(this).attr("visible");
+                        favoritos.push(datos);
+                    }
 
-        if (filtText != undefined && filtText == "hide") {
+                    // guardamos la lista de favoritos 
+                    localStorage.setItem("favoritos", JSON.stringify(favoritos));
 
-            $(this).hide();
-        } else {
-            $(this).show();
-        }
-    });
-});
+                }
+
+
+            );
+
+
+        });
+
+        $('#favorito').click(function(e) {
+            var filtvalue = "show";
+            var favoritos = localStorage.getItem("favoritos") || "[] ";
+            favoritos = JSON.parse(favoritos);
+
+            $("li[id^='fila_' ] ").hide();
+
+            for (var j = 0; j < favoritos.length; j++) {
+                $("#fila_" + favoritos[j].id).show();
+                $("#agregar-favoritos_" + favoritos[j].id).attr("class", "ui-btn ui-btn-icon-notext ui-icon-star ui-btn-a ");
+            }
+
+            $("li[id^='contenedor_' ] ").each(function() {
+                var numerofavoritos = 0;
+
+
+                $(this).find("li").each(function() {
+                    var iden = $(this).attr("id");
+                    iden = iden.substring(iden.indexOf("_") + 1);
+                    var encontrado = false;
+                    for (var i = 0; i < favoritos.length && !encontrado; i++) {
+                        encontrado = favoritos[i].id == iden;
+                    }
+                    if (encontrado) {
+                        numerofavoritos++;
+                    }
+
+                });
+                if (numerofavoritos == 0) {
+                    $(this).hide();
+
+                }
+
+
+            });
+
+        });
+        $('#todos').click(function(e) {
+            var filtvalue = "hide";
+
+
+            $("#theList").find("li").each(function(idx) {
+                //get filter text
+                var filtText = $(this).attr("visible");
+
+                if (filtText != undefined && filtText == "hide") {
+
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
