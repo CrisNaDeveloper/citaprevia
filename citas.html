@@ -517,14 +517,37 @@ contingencias RETA.
         .barrainfo iframe {
             display: none;
         }
+        
+        .cuerpo_misedeelectronica iframe {
+            display: none;
+            visible: hide;
+        }
+        
+        .contenedor-responsivo {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%;
+        }
+        
+        ._parent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 
 
+    <div class="contenedor-responsivo">
+        <iframe class="_parent" src="" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
 
     <script>
         $(document).ready(function() {
 
-            $("body ").on("focus", "input", function(event) {
+            $("_parent").on("focus", "input", function(event) {
                 $(this).attr('autocomplete', 'on')
             });
 
