@@ -43,66 +43,129 @@
     <script src="/media/jui/js/jquery-migrate.min.js?44a8644863712864506fe2b9c6a6ef8a" type="text/javascript"></script>
     <script src="/media/plg_system_kickgdpr/js/cookieconsent.min.js?44a8644863712864506fe2b9c6a6ef8a" type="text/javascript"></script>
     <script type="text/javascript">
-        / Start Cookie Alert
-        window.addEventListener("load", function() {
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#000000",
-                        "text": "#fafafa"
-                    },
-                    "button": {
-                        "background": "#ea0122",
-                        "text": "#fafafa",
-                    }
+        // JavaScript Document
+        var id_com = 13;
+        var xsb_elements = 10;
+        var xsb_offset = 20;
+        var max_items = 179;
+
+
+        function getAyuCom() {
+            alert("paso");
+            var token = jQuery("#xsb-token").attr("name");
+
+            jQuery.ajax({
+
+                url: 'https://www.todoslosayuntamientos.es/index.php',
+
+                data: {
+                    [token]: "1",
+                    option: "com_xsbayuntamientos",
+                    view: "comunidades",
+                    task: "getAyuntamientos",
+                    format: "json",
+                    id_comunidad: id_com,
+                    xsb_elements: xsb_elements,
+                    xsb_offset: xsb_offset,
                 },
-                "theme": "block",
-                "position": "bottom",
-                "type": "",
-                "revokeBtn": "<div class=\"cc-revoke {{classes}}\">Cookie Policy</div>",
-                "content": {
-                    "message": "En TodosLosAyuntmientos.es utilizamos cookies para mejorar tu experiencia en la web.",
-                    "dismiss": "Perfecto",
-                    "allow": "Allow cookies",
-                    "deny": "Refuse cookies",
-                    "link": "Información sobre las Cookies",
-                    "imprint_link": "Imprint",
-                    "href": "/politica-de-cookies",
+                beforeSend: hideXsbSearchButton(),
+
+                success: function(result, status, xhr) {
+                    xsbSuccessAyuntamientos(result, status, xhr);
                 },
-                "cookie": {
-                    "expiryDays": 365
+
+                error: function() {
+                    jQuery('#xsb-ayuntamientos-loader').height(0);
+                    console.log('ajax call failed');
                 },
-                "elements": {
-                    "messagelink": "<span id=\"cookieconsent:desc\" class=\"cc-message\">{{message}}<a aria-label=\"learn more about cookies\" role=\"button\" tabindex=\"0\" class=\"cc-link\" href=\"/politica-de-cookies\" target=\"_blank\">{{link}}</a></span>"
+
+                complete: function(xhr, status) {
+                    xsbCompleteAyuntamientos();
                 },
-                onInitialise: function(status) {
-                    handleCookies(status);
-                },
-                onStatusChange: function(status, chosenBefore) {
-                    handleCookies(status);
-                },
-                onRevokeChoice: function() {
-                    handleCookies(status);
-                }
-            })
-        });
-        / End Cookie Alert
 
-        function handleCookies(status) {
-
-
-
-
-
-
+            });
         }
 
-        / Init handleCookies if the user doesn't choose any options
-        if (document.cookie.split(';').filter(function(item) {
-                return item.indexOf('cookieconsent_status=') >= 0
-            }).length == 0) {
-            handleCookies('notset');
-        };
+        function getAyuProv() {
+
+            var token = jQuery("#xsb-token").attr("name");
+
+            console.log("Offset: " + xsb_offset);
+            console.log("Maxitems: " + max_items);
+
+            jQuery.ajax({
+
+                url: 'index.php',
+
+                data: {
+                    [token]: "1",
+                    option: "com_xsbayuntamientos",
+                    view: "provincias",
+                    task: "getAyuntamientos",
+                    format: "json",
+                    id_provincia: id_prov,
+                    xsb_elements: xsb_elements,
+                    xsb_offset: xsb_offset,
+                },
+                beforeSend: hideXsbSearchButton(),
+
+                success: function(result, status, xhr) {
+                    xsbSuccessAyuntamientos(result, status, xhr);
+                },
+
+                error: function() {
+                    jQuery('#xsb-ayuntamientos-loader').height(0);
+                    console.log('ajax call failed');
+                },
+
+                complete: function(xhr, status) {
+                    xsbCompleteAyuntamientos();
+                },
+
+            });
+        }
+
+        function xsbSuccessAyuntamientos(result, status, xhr) {
+            jQuery('#xsb-ayuntamientos-loader').height(0);
+
+            //console.log(result);
+
+            if (result.success) {
+                //datos = JSON.parse(result.data);
+
+                console.log(result.data.length);
+
+                for (i = 0; i < result.data.length; i++) {
+
+                    jQuery('#xsb-listado-ayuntamientos-container').append(result.data[i]);
+                    //console.log(result.data[i]);
+
+                }
+            }
+        }
+
+        function xsbCompleteAyuntamientos() {
+            jQuery('#xsb-ayuntamientos-loader').height(0);
+
+            jQuery('.xsb-ayuntamiento-item.xsb-ayuntamiento-item-computed').slideDown(800);
+
+            xsb_offset = xsb_offset + xsb_elements;
+
+            if (xsb_offset <= max_items) {
+                jQuery('#xsb-btn-cargar-ayuntamientos').prop('disabled', false);
+            } else {
+                jQuery('#xsb-btn-cargar-ayuntamientos').html('No quedan mas ayuntamientos');
+            }
+
+
+            console.log("Offset: " + xsb_offset);
+            console.log("Maxitems: " + max_items);
+        }
+
+        function hideXsbSearchButton() {
+            jQuery('#xsb-ayuntamientos-loader').height(87);
+            jQuery('#xsb-btn-cargar-ayuntamientos').prop('disabled', true);
+        }
     </script>
     <link href="http:/www.todoslosayuntamientos.es" rel="canonical" />
     <meta property="og:title" content="Base de Datos de Todos los Ayuntamientos de España" />
@@ -1244,7 +1307,10 @@
 
             </div>
 
-
+            <div id="xsb-boton-cargar-ayuntamientos">
+                <input id="xsb-token" type="hidden" name="288f7f1609efb8c3899aee627bf23dc1" value="1"> <button id="xsb-btn-cargar-ayuntamientos" type="button" class="btn btn-primary" onclick="getAyuCom();">
+                    Cargar más ayuntamientos					</button>
+            </div>
 
         </div>
     </body>
