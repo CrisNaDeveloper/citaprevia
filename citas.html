@@ -57,37 +57,261 @@
 
                 <input type="radio" name="fila_elegir" id="favorito" value="favorito">
                 <label for="favorito">Favoritos</label>
-                <input type="radio" name="fila_elegir" id="todos" value="todos" checked>
-                <label for="todos">Todos</label>
-
+                <input type="radio" name="fila_elegir" id="citas" value="citas" checked>
+                <label for="citas">Citas</label>
+                <input type="radio" name="fila_elegir" id="tramites" value="tramites">
+                <label for="tramites">Trámites</label>
             </fieldset>
 
+            <!--INICIO LISTA CITAS-->
+            <ul id="listadecitas" data-role="listview" data-filter="true" data-input="#myFilter" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
+                <div id="contenedor_10" data-role="collapsible" data-mini="true">
+                    <h6>Cita Sanitaria (Todas las Comunidades )</h6>
+                    <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
+                    <ul id="listadecitasanitaria" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
+                        <li id="fila_101">
+                            <a target="_parent" href="https://www.saludinforma.es/portalsi/web/salud/tramites-gestiones/cita-previa"><img width="60px" width="60px" src="css/images/logo_aragon.jpg">
+                                <h6>Cita Sanitaria en Aragon </h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_101" HREF="#" id="agregar-favoritos_101"></A>
+                        </li>
+                        <li id="fila_102">
+                            <a target="_parent" href="https://www3.gobiernodecanarias.org/citasalud/"><img width="60px" width="60px" src="css/images/logo_canarias.jpg">
+                                <h6>Cita Sanitaria Canarias </h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_102" HREF="#" id="agregar-favoritos_102"></A>
+                        </li>
+                        <li id="fila_103">
+                            <a target="_parent" href="https://citaweb.saludcastillayleon.es/CitaPreviaWeb/#/start"><img width="60px" width="60px" src="css/images/logo_castilla_leon.png">
+                                <h6>Cita Sanitaria en Castilla y León </h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_103" HREF="#" id="agregar-favoritos_103"></A>
+                        </li>
+                        <li id="fila_104">
+                            <a target="_parent" href="https://sescam.jccm.es/csalud/citas/inicioCita.jsf?main=/ciudadanos/citaPrevia/citaPreLogin.jsp&cabecera=/common/cabecera_cita.html"><img width="60px" width="60px" src="css/images/logo_castilla_mancha.png">
+                                <h6>Cita Sanitaria Castilla La Mancha</h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_104" HREF="#" id="agregar-favoritos_104"></A>
+                        </li>
+                        <li id="fila_105">
+                            <a target="_parent" href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/com-accedeix/programacio-visites/"><img width="60px" width="60px" src="css/images/logo_cataluña.png">
+                                <h6>Cita Sanitaria en Cataluña</h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_105" HREF="#" id="agregar-favoritos_105"></A>
+                        </li>
+                        <li id="fila_106">
+                            <a target="_parent" href="https://citaweb-ingesa.msssi.es/IngesaCitaWeb/citaprevia/inicio"><img width="60px" width="60px" src="css/images/logo_ceuta_melilla.png">
+                                <h6>Cita Sanitaria en Ceuta y Melilla</h6>
+                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_106" HREF="#" id="agregar-favoritos_106"></A>
+                        </li>
+                        <li id="fila_107">
+                            <a target="_parent" href="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx"><img width="60px" src="css/images/logo_salud.png">
+                                <h6>Cita Sanitaria en Madrid</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_107" HREF="#" id="agregar-favoritos_107"></A>
+                        </li>
+
+                        <li id="fila_108">
+                            <a target="_parent" href="http://www.san.gva.es/cita_previa/citaprevia_val.html"><img width="60px" src="css/images/logo_valencia.png">
+                                <h6>Cita Sanitaria en Valencia</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_108" HREF="#" id="agregar-favoritos_108"></A>
+                        </li>
 
 
-            <ul id="theList" data-role="listview" data-filter="true" data-input="#myFilter" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
+                        <li id="fila_109">
+                            <a target="_parent" href="https://saludextremadura.ses.es/csonline/login/login.xhtml?accion=backToCitaPrevia"><img width="60px" src="css/images/logo_extremadura.png">
+                                <h6>Cita Sanitaria en Extremadura</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_109" HREF="#" id="agregar-favoritos_109"></A>
+                        </li>
 
-                <li id="fila_1">
+                        <li id="fila_110">
+                            <a target="_parent" href="https://www.sergas.gal/"><img width="60px" src="css/images/logo_galicia.jpg">
+                                <h6>Cita Sanitaria en Galicia</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_110" HREF="#" id="agregar-favoritos_110"></A>
+                        </li>
+                        <li id="fila_111">
+                            <a target="_parent" href="https://porpac.ibsalut.es/services/Appointment.action"><img width="60px" src="css/images/logo_baleares.png">
+                                <h6>Cita Sanitaria en Baleares</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_111" HREF="#" id="agregar-favoritos_111"></A>
+                        </li>
 
-                    <a target="_parent" href="https://imv.seg-social.es/"><img width="60px" src="css/images/imv.png">
-                        <h6>Ingreso Mínimo Vital</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar Ingreso Mínimo Vital IMV, ver el estado de la solicitud del Ingreso mínimo Vital, Aportar documentación al ingreso mínimo vital </p>
+                        <li id="fila_112">
+                            <a target="_parent" href="https://cita-previa.riojasalud.es/"><img width="60px" src="css/images/logo_larioja.png">
+                                <h6>Cita Sanitaria en La Rioja</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_112" HREF="#" id="agregar-favoritos_112"></A>
+                        </li>
+                        <li id="fila_113">
+                            <a target="_parent" href="https://www.osanet.euskadi.net/o22PlamWar/iniciologin.do?idioma=cas"><img width="60px" src="css/images/logo_paisvaco.jpg">
+                                <h6>Cita Sanitaria en el País Vasco</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_113" HREF="#" id="agregar-favoritos_113"></A>
+                        </li>
+
+                        <li id="fila_114">
+                            <a target="_parent" href="https://sede.carm.es/sms/citainternet/login.xhtml"><img width="60px" src="css/images/logo_murcia.png">
+                                <h6>Cita Sanitaria en Murcia</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
+                            </a>
+                            <A name="fila_114" HREF="#" id="agregar-favoritos_114"></A>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <li id="fila_2">
+                    <a target="_parent" href="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do"><img width="60px" src="css/images/logo_sepe.png">
+                        <h6>Cita previa Servicio de empleo</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar empleo, prestaciones por desempleo, etc.. </p>
                     </a>
-                    <a HREF="#" name="fila_1" id="agregar-favoritos_1"></A>
+                    <A HREF="#" name="fila_2" id="agregar-favoritos_2"></A>
                 </li>
-                <li id="fila_21">
-                    <a target="_parent" href="https://epostal.correos.es/OV2PREENVWEB/jsp/mioficinavirtual/procelect/homeProcElect.faces?_rap=mov_procesosElectoralesHandler.mostrarVista&cod_proceso=41#!"><img width="60px" src="css/images/logo_correos.png">
-                        <h6>Solicitud de Voto por correo Comunidad de Madrid elecciones 2021 (Necesario Certificado digital o DNIe)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el voto por correo, realiza la solicitud le mandan el voto y posteriormente lo entrega a correos o al cartero. </p>
+                <li id="fila_3">
+                    <a target="_parent" href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion"><img width="60px" width="60px" src="css/images/logo_agencia.png">
+                        <h6>Cita previa Agencia Tributaria </h6>
+                        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar declaración de la renta, pago de impuestos,etc..</p>
                     </a>
-                    <A name="fila_21" HREF="#" id="agregar-favoritos_21"></A>
+                    <A name="fila_3" HREF="#" id="agregar-favoritos_3"></A>
                 </li>
-                <li id="fila_22">
-                    <a target="_parent" href="https://www.tarjetasocialdigital.es/wps/portal/tsu/TSocial/AccesoTSU/"><img width="60px" src="css/images/logo_tsd.png">
-                        <h6>Tarjeta social Digital</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para consultar las prestaciones sociales de la Administración General del Estado, las Comunidades Autónomas, las entidades locales y otras entidades. </p>
+                <li id="fila_4">
+                    <a target="_parent" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I"><img width="60px" src="css/images/logo_inss.jpg">
+                        <h6>Cita previa Instituto Nacional de la Seguridad Social </h6>
+                        <p visible="content " style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar pensiones y prestaciones </p>
                     </a>
-                    <A name="fila_22" HREF="#" id="agregar-favoritos_22"></A>
+                    <A name="fila_4" HREF="#" id="agregar-favoritos_4"></A>
                 </li>
+
+
+                <li id="fila_5">
+                    <a target="_parent" href="https://www.tumejoritv.com/oferta-cita-itv"><img width="60px" src="css/images/logo_itv.png">
+                        <h6>Cita previa ITV (Todos los Centros de España)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para pedir cita para pasar la ITV en cualquier localidad de España</p>
+                    </a>
+                    <A name="fila_5" HREF="#" id="agregar-favoritos_5"></A>
+                </li>
+
+
+                <li id="fila_6">
+                    <a target="_parent" href="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action"><img width="60px" src="css/images/logo_cnp.png">
+                        <h6>Cita previa Policía Nacional</h6>
+
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar y renovar DNI, DNIe ,NIE, pasaporte, etc..</p>
+                    </a>
+                    <A name="fila_6" HREF="#" id="agregar-favoritos_6"></A>
+                </li>
+
+
+                <li id="fila_8">
+                    <a target="_parent" href="https://sedeclave.dgt.gob.es/WEB_NCIT_CONSULTA/solicitarCita.faces"><img width="60px" src="css/images/logo_dgt.jpg">
+                        <h6>Cita previa Dirección General de Tráfico</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el carnet de conducir, renovación, pago de tasas e impuestos, etc.. </p>
+                    </a>
+                    <A name="fila_8" HREF="#" id="agregar-favoritos_8"></A>
+                </li>
+
+                <li id="fila_11">
+                    <a target="_parent" href="https://www.sanitas.es/misanitas/online/clientes/area-publica/#/"><img width="60px" src="css/images/logo-sanitas.jpg">
+                        <h6>Cita previa Sanitaria Sanitas</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
+                    </a>
+                    <A name="fila_11" HREF="#" id="agregar-favoritos_11"></A>
+                </li>
+                <li id="fila_12">
+                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE"><img width="60px" src="css/images/logo_muface.png">
+                        <h6>Cita previa Muface </h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitarias, médicos, etc</p>
+                    </a>
+                    <A name="fila_12" HREF="#" id="agregar-favoritos_12"></A>
+                </li>
+
+                <li id="fila_13">
+                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplus/index.html"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Extranjería (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicita permiso de Asilo, visado, TIE, certificado de residente, NIE, Toma de huellas, tramites de comisarias, etc..</p>
+                    </a>
+                    <A name="fila_13" HREF="#" id="agregar-favoritos_13"></A>
+                </li>
+
+                <li id="fila_14">
+                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Oficinas de registro (Todas las provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para obtener Certificados Digitales, acceso por Cl@ve, Registro de documentación </p>
+                    </a>
+                    <A name="fila_14" HREF="#" id="agregar-favoritos_14"></A>
+                </li>
+                <li id="fila_15">
+                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Registro Civil (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar Inscripción en el registro civil, matrimonio civil, solicitar certificados, cambio de nombre, inscripción de matrimonios, inscripción de nacimiento, nacionalidad, solicitud libro de familia, etc...</p>
+                    </a>
+                    <A name="fila_15" HREF="#" id="agregar-favoritos_15"></A>
+                </li>
+                <li id="fila_16">
+                    <a target="_parent" href="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Centros Penitenciarios (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Visitas a centros penitenciarios</p>
+                    </a>
+                    <A name="fila_16" HREF="#" id="agregar-favoritos_16"></A>
+                </li>
+
+                <li id="fila_17">
+                    <a target="_parent" href="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do"><img width="60px" src="css/images/logo_gob_esp.png">
+                        <h6>Cita previa Vacunación Internacional (Todas las Provincias)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Cita para vacunarte si viajas al extranjero</p>
+                    </a>
+                    <A name="fila_17" HREF="#" id="agregar-favoritos_17"></A>
+                </li>
+                <li id="fila_18">
+                    <a target="_parent" href="https://citaprevia.mjusticia.gob.es"><img width="60px" src="css/images/logo_justicia.jpg">
+                        <h6>Cita previa Ministerio de Justicia</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para Certificado de antecedentes penales, certificados de últimas voluntades, registro general, etc..</p>
+                    </a>
+                    <A name="fila_18" HREF="#" id="agregar-favoritos_18"></A>
+                </li>
+                <li id="fila_9">
+                    <a target="_parent" href="https://www-s.munimadrid.es/CitaNet/index.jsp"><img width="60px" src="css/images/logo_munimadrid.png">
+                        <h6>Cita previa Ayuntamiento de Madrid</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Pago de impuestos, tasas , información, etc..</p>
+                    </a>
+                    <A name="fila_9" HREF="#" id="agregar-favoritos_9"></A>
+                </li>
+                <li id="fila_19">
+                    <a target="_parent" href="ayuntamiento_comunidades.html"><img width="60px " src="css/images/sele_electronica.png">
+                        <h6>Todos los ayuntamientos de España</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188); ">Busque aquí la sede electronica del ayuntamiento de su localidad.</p>
+                    </a>
+                    <A name="fila_19 " HREF="# " id="agregar-favoritos_19"></A>
+                </li>
+
+
+
+
+            </ul>
+            <!--FIN LISTA CITAS-->
+
+            <!--LISTA TRAMITES-->
+            <ul id="listadetramites" data-role="listview" data-filter="true" data-input="#myFilter" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
+
+
                 <div data-mini="true" data-role="collapsible" id="contenedor_20">
 
                     <h6><img width="60px" width="60px" src="css/images/logo_ss.png">Trámites online acceso SMS</h6>
@@ -95,7 +319,7 @@
                     <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Trámites online SMS (Solo necesita un DNI/NE y un número de teléfono</p>
 
 
-                    <ul id="theList2" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
+                    <ul id="listadetramitesms" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
                         <li id="fila_201">
                             <a target="_parent" href="https://sp.seg-social.es/ProsaInternet/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=AFHGL008&PAUC.FORCE_IDP=IPDC">
                                 <h6>Alta RETA </h6>
@@ -475,274 +699,42 @@
                             </a>
                             <A name="fila_239" HREF="#" id="agregar-favoritos_239"></A>
                         </li>
+                        <li id="fila_1">
 
+                            <a target="_parent" href="https://imv.seg-social.es/"><img width="60px" src="css/images/imv.png">
+                                <h6>Ingreso Mínimo Vital</h6>
+                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar Ingreso Mínimo Vital IMV, ver el estado de la solicitud del Ingreso mínimo Vital, Aportar documentación al ingreso mínimo vital </p>
+                            </a>
+                            <a HREF="#" name="fila_1" id="agregar-favoritos_1"></A>
+                        </li>
 
                     </ul>
                 </div>
 
-                <!--
 
 
 
 
-39. Rectificación de informe de vida laboral
-40. Rescisión de CCCs y NAFs asignados a un autorizado RED
-41. Resolución (duplicado) de alta/baja en el Régimen Especial de trabajadores por cuenta propia o
-autónomos
-42. Resolución (duplicado) de alta/baja en el Régimen Especial del Mar por cuenta propia
-43. Resolución (duplicado) de alta/baja en el Sistema Especial para Empleados de Hogar
-44. Solicitud de base reducida por pluriactividad RETA
-45. Solicitud de base reducida por pluriactividad RETM
-46. Solicitud de modificación para el año próximo de Mutua colaboradora y de la cobertura de
-contingencias RETA.
-47. Solicitud Tarjeta Sanitaria Europea (TSE)
-48. Variaciones/ Correcciones de datos de trabajadores en el Sistema Especial para Empleados de Hogar
--->
-                <li id="fila_2">
-                    <a target="_parent" href="https://sede.sepe.gob.es/citaprevia/solicitudCitaPrevia.do"><img width="60px" src="css/images/logo_sepe.png">
-                        <h6>Cita previa Servicio de empleo</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar empleo, prestaciones por desempleo, etc.. </p>
+
+                <li id="fila_21">
+                    <a target="_parent" href="https://epostal.correos.es/OV2PREENVWEB/jsp/mioficinavirtual/procelect/homeProcElect.faces?_rap=mov_procesosElectoralesHandler.mostrarVista&cod_proceso=41#!"><img width="60px" src="css/images/logo_correos.png">
+                        <h6>Solicitud de Voto por correo Comunidad de Madrid elecciones 2021 (Necesario Certificado digital o DNIe)</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el voto por correo, realiza la solicitud le mandan el voto y posteriormente lo entrega a correos o al cartero. </p>
                     </a>
-                    <A HREF="#" name="fila_2" id="agregar-favoritos_2"></A>
+                    <A name="fila_21" HREF="#" id="agregar-favoritos_21"></A>
                 </li>
-                <li id="fila_3">
-                    <a target="_parent" href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/Identificacion"><img width="60px" width="60px" src="css/images/logo_agencia.png">
-                        <h6>Cita previa Agencia Tributaria </h6>
-                        <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar declaración de la renta, pago de impuestos,etc..</p>
+                <li id="fila_22">
+                    <a target="_parent" href="https://www.tarjetasocialdigital.es/wps/portal/tsu/TSocial/AccesoTSU/"><img width="60px" src="css/images/logo_tsd.png">
+                        <h6>Tarjeta social Digital</h6>
+                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para consultar las prestaciones sociales de la Administración General del Estado, las Comunidades Autónomas, las entidades locales y otras entidades. </p>
                     </a>
-                    <A name="fila_3" HREF="#" id="agregar-favoritos_3"></A>
-                </li>
-                <li id="fila_4">
-                    <a target="_parent" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=XV106001&ORGANISMO=I"><img width="60px" src="css/images/logo_inss.jpg">
-                        <h6>Cita previa Instituto Nacional de la Seguridad Social </h6>
-                        <p visible="content " style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar pensiones y prestaciones </p>
-                    </a>
-                    <A name="fila_4" HREF="#" id="agregar-favoritos_4"></A>
-                </li>
-
-
-                <li id="fila_5">
-                    <a target="_parent" href="https://www.tumejoritv.com/oferta-cita-itv"><img width="60px" src="css/images/logo_itv.png">
-                        <h6>Cita previa ITV (Todos los Centros de España)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para pedir cita para pasar la ITV en cualquier localidad de España</p>
-                    </a>
-                    <A name="fila_5" HREF="#" id="agregar-favoritos_5"></A>
-                </li>
-
-
-                <li id="fila_6">
-                    <a target="_parent" href="https://www.citapreviadnie.es/citaPreviaDniExp/InicioDNINIE.action"><img width="60px" src="css/images/logo_cnp.png">
-                        <h6>Cita previa Policía Nacional</h6>
-
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar y renovar DNI, DNIe ,NIE, pasaporte, etc..</p>
-                    </a>
-                    <A name="fila_6" HREF="#" id="agregar-favoritos_6"></A>
-                </li>
-
-
-                <li id="fila_8">
-                    <a target="_parent" href="https://sedeclave.dgt.gob.es/WEB_NCIT_CONSULTA/solicitarCita.faces"><img width="60px" src="css/images/logo_dgt.jpg">
-                        <h6>Cita previa Dirección General de Tráfico</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar el carnet de conducir, renovación, pago de tasas e impuestos, etc.. </p>
-                    </a>
-                    <A name="fila_8" HREF="#" id="agregar-favoritos_8"></A>
+                    <A name="fila_22" HREF="#" id="agregar-favoritos_22"></A>
                 </li>
 
 
 
-
-
-
-
-
-                <div id="contenedor_10" data-role="collapsible" data-mini="true">
-                    <h6>Cita Sanitaria (Todas las Comunidades )</h6>
-                    <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
-                    <ul id="theList" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true" data-split-icon="star" data-theme="a" data-split-theme="b" data-inset="true">
-                        <li id="fila_101">
-                            <a target="_parent" href="https://www.saludinforma.es/portalsi/web/salud/tramites-gestiones/cita-previa"><img width="60px" width="60px" src="css/images/logo_aragon.jpg">
-                                <h6>Cita Sanitaria en Aragon </h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_101" HREF="#" id="agregar-favoritos_101"></A>
-                        </li>
-                        <li id="fila_102">
-                            <a target="_parent" href="https://www3.gobiernodecanarias.org/citasalud/"><img width="60px" width="60px" src="css/images/logo_canarias.jpg">
-                                <h6>Cita Sanitaria Canarias </h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_102" HREF="#" id="agregar-favoritos_102"></A>
-                        </li>
-                        <li id="fila_103">
-                            <a target="_parent" href="https://citaweb.saludcastillayleon.es/CitaPreviaWeb/#/start"><img width="60px" width="60px" src="css/images/logo_castilla_leon.png">
-                                <h6>Cita Sanitaria en Castilla y León </h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_103" HREF="#" id="agregar-favoritos_103"></A>
-                        </li>
-                        <li id="fila_104">
-                            <a target="_parent" href="https://sescam.jccm.es/csalud/citas/inicioCita.jsf?main=/ciudadanos/citaPrevia/citaPreLogin.jsp&cabecera=/common/cabecera_cita.html"><img width="60px" width="60px" src="css/images/logo_castilla_mancha.png">
-                                <h6>Cita Sanitaria Castilla La Mancha</h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_104" HREF="#" id="agregar-favoritos_104"></A>
-                        </li>
-                        <li id="fila_105">
-                            <a target="_parent" href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/com-accedeix/programacio-visites/"><img width="60px" width="60px" src="css/images/logo_cataluña.png">
-                                <h6>Cita Sanitaria en Cataluña</h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_105" HREF="#" id="agregar-favoritos_105"></A>
-                        </li>
-                        <li id="fila_106">
-                            <a target="_parent" href="https://citaweb-ingesa.msssi.es/IngesaCitaWeb/citaprevia/inicio"><img width="60px" width="60px" src="css/images/logo_ceuta_melilla.png">
-                                <h6>Cita Sanitaria en Ceuta y Melilla</h6>
-                                <p style="text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_106" HREF="#" id="agregar-favoritos_106"></A>
-                        </li>
-                        <li id="fila_107">
-                            <a target="_parent" href="https://www.citaprevia.sanidadmadrid.org/Forms/Acceso.aspx"><img width="60px" src="css/images/logo_salud.png">
-                                <h6>Cita Sanitaria en Madrid</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_107" HREF="#" id="agregar-favoritos_107"></A>
-                        </li>
-
-                        <li id="fila_108">
-                            <a target="_parent" href="http://www.san.gva.es/cita_previa/citaprevia_val.html"><img width="60px" src="css/images/logo_valencia.png">
-                                <h6>Cita Sanitaria en Valencia</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_108" HREF="#" id="agregar-favoritos_108"></A>
-                        </li>
-
-
-                        <li id="fila_109">
-                            <a target="_parent" href="https://saludextremadura.ses.es/csonline/login/login.xhtml?accion=backToCitaPrevia"><img width="60px" src="css/images/logo_extremadura.png">
-                                <h6>Cita Sanitaria en Extremadura</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_109" HREF="#" id="agregar-favoritos_109"></A>
-                        </li>
-
-                        <li id="fila_110">
-                            <a target="_parent" href="https://www.sergas.gal/"><img width="60px" src="css/images/logo_galicia.jpg">
-                                <h6>Cita Sanitaria en Galicia</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_110" HREF="#" id="agregar-favoritos_110"></A>
-                        </li>
-                        <li id="fila_111">
-                            <a target="_parent" href="https://porpac.ibsalut.es/services/Appointment.action"><img width="60px" src="css/images/logo_baleares.png">
-                                <h6>Cita Sanitaria en Baleares</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_111" HREF="#" id="agregar-favoritos_111"></A>
-                        </li>
-
-                        <li id="fila_112">
-                            <a target="_parent" href="https://cita-previa.riojasalud.es/"><img width="60px" src="css/images/logo_larioja.png">
-                                <h6>Cita Sanitaria en La Rioja</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_112" HREF="#" id="agregar-favoritos_112"></A>
-                        </li>
-                        <li id="fila_113">
-                            <a target="_parent" href="https://www.osanet.euskadi.net/o22PlamWar/iniciologin.do?idioma=cas"><img width="60px" src="css/images/logo_paisvaco.jpg">
-                                <h6>Cita Sanitaria en el País Vasco</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_113" HREF="#" id="agregar-favoritos_113"></A>
-                        </li>
-
-                        <li id="fila_114">
-                            <a target="_parent" href="https://sede.carm.es/sms/citainternet/login.xhtml"><img width="60px" src="css/images/logo_murcia.png">
-                                <h6>Cita Sanitaria en Murcia</h6>
-                                <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitaria</p>
-                            </a>
-                            <A name="fila_114" HREF="#" id="agregar-favoritos_114"></A>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <li id="fila_11">
-                    <a target="_parent" href="https://www.sanitas.es/misanitas/online/clientes/area-publica/#/"><img width="60px" src="css/images/logo-sanitas.jpg">
-                        <h6>Cita previa Sanitaria Sanitas</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para solicitar citas con el Médico, Enfermera, vacunación, Pediatra, Especialistas </p>
-                    </a>
-                    <A name="fila_11" HREF="#" id="agregar-favoritos_11"></A>
-                </li>
-                <li id="fila_12">
-                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=MUFACE"><img width="60px" src="css/images/logo_muface.png">
-                        <h6>Cita previa Muface </h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para tramitar citas sanitarias, médicos, etc</p>
-                    </a>
-                    <A name="fila_12" HREF="#" id="agregar-favoritos_12"></A>
-                </li>
-
-                <li id="fila_13">
-                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplus/index.html"><img width="60px" src="css/images/logo_gob_esp.png">
-                        <h6>Cita previa Extranjería (Todas las Provincias)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicita permiso de Asilo, visado, TIE, certificado de residente, NIE, Toma de huellas, tramites de comisarias, etc..</p>
-                    </a>
-                    <A name="fila_13" HREF="#" id="agregar-favoritos_13"></A>
-                </li>
-
-                <li id="fila_14">
-                    <a target="_parent" href="https://ssweb.seap.minhap.es/icpplus/citar?org=OIACR"><img width="60px" src="css/images/logo_gob_esp.png">
-                        <h6>Cita previa Oficinas de registro (Todas las provincias)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para obtener Certificados Digitales, acceso por Cl@ve, Registro de documentación </p>
-                    </a>
-                    <A name="fila_14" HREF="#" id="agregar-favoritos_14"></A>
-                </li>
-                <li id="fila_15">
-                    <a target="_parent" href="https://sede.administracionespublicas.gob.es/icpplustiej/citar?i=es&org=JUS-RC"><img width="60px" src="css/images/logo_gob_esp.png">
-                        <h6>Cita previa Registro Civil (Todas las Provincias)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para tramitar Inscripción en el registro civil, matrimonio civil, solicitar certificados, cambio de nombre, inscripción de matrimonios, inscripción de nacimiento, nacionalidad, solicitud libro de familia, etc...</p>
-                    </a>
-                    <A name="fila_15" HREF="#" id="agregar-favoritos_15"></A>
-                </li>
-                <li id="fila_16">
-                    <a target="_parent" href="https://citaprevia.institucionpenitenciaria.es/cita-previa-publico/"><img width="60px" src="css/images/logo_gob_esp.png">
-                        <h6>Cita previa Centros Penitenciarios (Todas las Provincias)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Visitas a centros penitenciarios</p>
-                    </a>
-                    <A name="fila_16" HREF="#" id="agregar-favoritos_16"></A>
-                </li>
-
-                <li id="fila_17">
-                    <a target="_parent" href="https://sisaex-vac-cita.mscbs.gob.es/sanitarios/consejos/datosViajero/iniciar.do"><img width="60px" src="css/images/logo_gob_esp.png">
-                        <h6>Cita previa Vacunación Internacional (Todas las Provincias)</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Cita para vacunarte si viajas al extranjero</p>
-                    </a>
-                    <A name="fila_17" HREF="#" id="agregar-favoritos_17"></A>
-                </li>
-                <li id="fila_18">
-                    <a target="_parent" href="https://citaprevia.mjusticia.gob.es"><img width="60px" src="css/images/logo_justicia.jpg">
-                        <h6>Cita previa Ministerio de Justicia</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);"> Para Certificado de antecedentes penales, certificados de últimas voluntades, registro general, etc..</p>
-                    </a>
-                    <A name="fila_18" HREF="#" id="agregar-favoritos_18"></A>
-                </li>
-                <li id="fila_9">
-                    <a target="_parent" href="https://www-s.munimadrid.es/CitaNet/index.jsp"><img width="60px" src="css/images/logo_munimadrid.png">
-                        <h6>Cita previa Ayuntamiento de Madrid</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Pago de impuestos, tasas , información, etc..</p>
-                    </a>
-                    <A name="fila_9" HREF="#" id="agregar-favoritos_9"></A>
-                </li>
-                <li id="fila_19">
-                    <a target="_parent" href="ayuntamiento_comunidades.html"><img width="60px " src="css/images/sele_electronica.png">
-                        <h6>Todos los ayuntamientos de España</h6>
-                        <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188); ">Busque aquí la sede electronica del ayuntamiento de su localidad.</p>
-                    </a>
-                    <A name="fila_19 " HREF="# " id="agregar-favoritos_19"></A>
-                </li>
             </ul>
+            <!--FIN LISTA TRAMITES-->
         </div>
     </div>
 
@@ -899,21 +891,62 @@ contingencias RETA.
             });
 
         });
-        $('#todos').click(function(e) {
+        $('#citas').click(function(e) {
             var filtvalue = "hide";
 
 
-            $("#theList").find("li").each(function(idx) {
-                //get filter text
-                var filtText = $(this).attr("visible");
+            $("#listadecitas").find("li").each(function(idx) {
 
-                if (filtText != undefined && filtText == "hide") {
+                $(this).show();
 
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
             });
+
+            $("#listadecitasanitaria").find("li").each(function(idx) {
+
+                $(this).show();
+
+            });
+
+            $("#listadetramites").find("li").each(function(idx) {
+
+                $(this).hide();
+
+            });
+            $("#listadetramitesms").find("li").each(function(idx) {
+
+                $(this).hide();
+
+            });
+
+            $("#contenedor_20").hide();
+            $("#contenedor_10").show();
+
+
+        });
+        $('#tramites').click(function(e) {
+
+            $("#listadetramites").find("li").each(function(idx) {
+
+                $(this).show();
+
+            });
+
+            $("#listadetramitesms").find("li").each(function(idx) {
+                $(this).show();
+            });
+
+            $("#listadecitas").find("li").each(function(idx) {
+                $(this).hide();
+
+            });
+            $("#listadecitasanitaria").find("li").each(function(idx) {
+                $(this).hide();
+            });
+
+            $("#contenedor_10").hide();
+            $("#contenedor_20").show();
+
+
         });
     </script>
 
