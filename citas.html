@@ -783,13 +783,22 @@ contingencias RETA.
 
 
     <div class="contenedor-responsivo">
-        <iframe class="iframe-responsivo" id="_parent" src="" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        <iframe class="iframe-responsivo" id="_parent" src="" allow="autoplay" allow="encrypted-media" allowfullscreen></iframe>
     </div>
 
     <script>
+        $("#_parent")[0].contentWindow.enframe();
+        enframe() {
+
+            $(this).attr('autocomplete', 'on');
+        }
         $(document).ready(function() {
 
+
+
+            $('form').attr('autocomplete', 'on');
             $("_parent").on("focus", "input", function(event) {
+
                 $(this).attr('autocomplete', 'on')
             });
 
