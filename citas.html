@@ -868,9 +868,10 @@
 
             $("div[id^='contenedor_' ] ").each(function() {
                 var numerofavoritos = 0;
-
+                $(this).show();
 
                 $(this).find("li").each(function() {
+                    $(this).show();
                     var iden = $(this).attr("id");
                     iden = iden.substring(iden.indexOf("_") + 1);
                     var encontrado = false;
@@ -878,6 +879,7 @@
                         encontrado = favoritos[i].id == iden;
                     }
                     if (encontrado) {
+
                         numerofavoritos++;
                     }
 
