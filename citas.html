@@ -746,7 +746,7 @@
                     <A name="fila_23" HREF="#" id="agregar-favoritos_23"></A>
                 </li>
                 <li id="fila_24">
-                    <a target="_parent" href="https://sede.sepe.gob.es/portalSede/procedimientos-y-servicios.html"><img width="60px" src="css/images/logo_agencia.png">
+                    <a target="_parent" href="https://sede.sepe.gob.es/portalSede/procedimientos-y-servicios.html"><img width="60px" src="css/images/logo_sepe.png">
                         <h6>SEPE Servicio Estatal de Empleo</h6>
                         <p style=" text-align: left; font-size: x-small; color: rgb(25, 128, 188);">Para solicitar prestaciones, certificados, contratos laborales, etc..</p>
                     </a>
@@ -767,7 +767,6 @@
                     <A name="fila_27" HREF="#" id="agregar-favoritos_27"></A>
                 </li>
 
-                https://www.sedecatastro.gob.es/
             </ul>
             <!--FIN LISTA TRAMITES-->
         </div>
@@ -990,6 +989,38 @@
 
 
         });
+
+
+        if ($("#citas").prop("checked", true)) {
+
+
+            $("#listadecitas").find("li").each(function(idx) {
+
+                $(this).show();
+
+            });
+
+            $("#listadecitasanitaria").find("li").each(function(idx) {
+
+                $(this).show();
+
+            });
+
+            $("#listadetramites").find("li").each(function(idx) {
+
+                $(this).hide();
+
+            });
+            $("#listadetramitesms").find("li").each(function(idx) {
+
+                $(this).hide();
+
+            });
+
+            $("#contenedor_20").hide();
+            $("#contenedor_10").show();
+
+        }
     </script>
 
 </body>
