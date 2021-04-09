@@ -878,22 +878,27 @@
 
 
                 $(this).find("li").each(function() {
-                    $(this).show();
+
                     var iden = $(this).attr("id");
                     iden = iden.substring(iden.indexOf("_") + 1);
+
                     var encontrado = false;
                     for (var i = 0; i < favoritos.length && !encontrado; i++) {
                         encontrado = favoritos[i].id == iden;
                     }
                     if (encontrado) {
+                        $(this).show();
 
                         numerofavoritos++;
                     }
 
                 });
+
                 if (numerofavoritos == 0) {
                     $(this).hide();
 
+                } else {
+                    $(this).show();
                 }
 
 
